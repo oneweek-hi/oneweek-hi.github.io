@@ -66,9 +66,9 @@ $code-background-color: #fafafa !default;
 $code-background-color-dark: $light-gray !default;
 $text-color: $dark-gray !default;
 $muted-text-color: mix(#fff, $text-color, 20%) !default;
-$border-color: #D1E8E4!default;
-$form-background-color: #D1E8E4 !default;
-$footer-background-color: #D1E8E4 !default;
+$border-color: $lighter-gray !default;
+$form-background-color: $lighter-gray !default;
+$footer-background-color: $lighter-gray !default;
 
 $primary-color: #6f777d !default;
 $success-color: #3fa63f !default;
