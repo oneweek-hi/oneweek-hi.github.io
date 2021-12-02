@@ -20,7 +20,7 @@ title                    : "oneweek-hi"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Han Juhui"
-description              : "최선은 우리의 권리"
+description              : "하나 둘 씩 정리해봅시다✨"
 url                      : "https://oneweek-hi.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -104,7 +104,7 @@ analytics:
 author:
   name             : "Han Juhui"
   avatar           : "/assets/images/juhui.JPG"
-  bio              : "최선은 우리의 권리"
+  bio              : "하나 둘 씩 정리해봅시다✨ "
   location         : "Pohang, Republic of Korea"
   email            : 
   links:
