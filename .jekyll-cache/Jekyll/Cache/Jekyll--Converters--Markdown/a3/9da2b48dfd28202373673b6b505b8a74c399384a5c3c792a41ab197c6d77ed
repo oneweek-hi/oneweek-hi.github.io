@@ -1,0 +1,113 @@
+I"@<h1 id="자바-버전-바꾸기">자바 버전 바꾸기</h1>
+
+<p>Mac OS에는 여러 버전의 자바를 설치하고, 상황에 따라 버전을 바꾸어 가며 사용할 수 있다.</p>
+
+<p><br /></p>
+
+<h2 id="자바-여러-버전-설치하는-방법">자바 여러 버전 설치하는 방법</h2>
+
+<p>내가 사용 했던 방식은 총 두가지 이다.</p>
+
+<ul>
+  <li>홈페이지 가서 다운로드 받기</li>
+  <li>homebrew로 설치하기</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="1-홈페이지-가서-다운로드-받기">1. 홈페이지 가서 다운로드 받기</h3>
+
+<p><a href="https://www.oracle.com/java/technologies/downloads/" target="_blank"> ☕️ Java 홈페이지 </a>에 가서 자신이 필요한 파일을 다운로드 받은 후, dmg를 설치하면된다.</p>
+
+<p><br /></p>
+
+<h3 id="2-homebrew로-설치하기">2. homebrew로 설치하기</h3>
+
+<p>아래의 명령어를 순차적으로 입력하면 된다.</p>
+
+<div class="language-s highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#brew update하기</span><span class="w">
+</span><span class="o">$</span><span class="w"> </span><span class="n">brew</span><span class="w"> </span><span class="n">update</span><span class="w">
+
+</span><span class="c1">#adoptopenjdk/openjdk 추가하기</span><span class="w">
+</span><span class="o">$</span><span class="w"> </span><span class="n">brew</span><span class="w"> </span><span class="n">tap</span><span class="w"> </span><span class="n">adoptopenjdk</span><span class="o">/</span><span class="n">openjdk</span><span class="w">
+
+</span><span class="c1">#설치 가능한 모든 JDK 찾기</span><span class="w">
+</span><span class="o">$</span><span class="w"> </span><span class="n">brew</span><span class="w"> </span><span class="n">search</span><span class="w"> </span><span class="n">jdk</span><span class="w">
+
+</span><span class="c1">#원하는 버전 설치 하기 </span><span class="w">
+</span><span class="o">$</span><span class="w"> </span><span class="n">brew</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="o">--</span><span class="n">cask</span><span class="w"> </span><span class="n">adoptopenjdk14</span><span class="w">
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<p>위의 두가지 방법으로 설치 하면 아래와 같은 결과를 얻을 수 있다.</p>
+
+<div class="language-s highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#현재 설치된 자바 버전 보기</span><span class="w">
+</span><span class="o">$</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">libexec</span><span class="o">/</span><span class="n">java_home</span><span class="w"> </span><span class="o">-</span><span class="n">V</span><span class="w">
+</span></code></pre></div></div>
+
+<p><img src="https://user-images.githubusercontent.com/42812764/145034118-c086f252-8a67-40c3-97f3-55c2d968740e.png" alt="image" /></p>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<h2 id="자바-버전-바꾸기-1">자바 버전 바꾸기</h2>
+
+<p>자바의 버전을 먼저 확인하고, 위에서 확인한 이미 필요한 버전을 확인한 후 변경해 주면 된다.</p>
+
+<div class="language-s highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#Java 버전 확인하기</span><span class="w">
+</span><span class="o">$</span><span class="w"> </span><span class="n">java</span><span class="w"> </span><span class="o">-</span><span class="n">version</span><span class="w">
+</span></code></pre></div></div>
+
+<p><img src="https://user-images.githubusercontent.com/42812764/145034000-aec5e92a-667a-45e9-92c1-3af1ea603ead.png" alt="image" /></p>
+
+<p><br /></p>
+
+<p>그후 .zshrc를 수정해서 환경 변수를 수정해 주면 된다.</p>
+
+<div class="language-s highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#.zshrc파일 열기</span><span class="w">
+</span><span class="n">vi</span><span class="w"> </span><span class="o">~/</span><span class="n">.zshrc</span><span class="w">
+
+
+</span><span class="c1">#맨 아래에 추가해주기</span><span class="w">
+</span><span class="n">export</span><span class="w"> </span><span class="n">JAVA_HOME_11</span><span class="o">=$</span><span class="p">(</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">libexec</span><span class="o">/</span><span class="n">java_home</span><span class="w"> </span><span class="o">-</span><span class="n">v11</span><span class="p">)</span><span class="w">
+</span><span class="n">export</span><span class="w"> </span><span class="n">JAVA_HOME_14</span><span class="o">=$</span><span class="p">(</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">libexec</span><span class="o">/</span><span class="n">java_home</span><span class="w"> </span><span class="o">-</span><span class="n">v14</span><span class="p">)</span><span class="w">
+
+</span><span class="n">export</span><span class="w"> </span><span class="n">JAVA_HOME</span><span class="o">=$</span><span class="n">JAVA_HOME_14</span><span class="w">
+</span><span class="n">export</span><span class="w"> </span><span class="n">PATH</span><span class="o">=</span><span class="s2">"$PATH:$HOME/.rvm/bin"</span><span class="w">
+
+
+</span><span class="c1"># 적용시키기</span><span class="w">
+</span><span class="o">$</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="o">~/</span><span class="n">.zshrc</span><span class="w">
+
+</span></code></pre></div></div>
+
+<p>그럼 아래과 같이 버전이 변경 된 것을 확인 할 수 있다!</p>
+
+<p>생각보다 간단해서 겁먹지 말고 슉슉 바꾸면 될 듯하다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/42812764/145031700-5546f61f-0ddb-4941-819f-92564fb1b2d4.png" alt="image" /></p>
+
+<p><img src="https://user-images.githubusercontent.com/42812764/145032367-1363ba1a-430b-44b3-817d-13f3037bdf9f.png" alt="image" /></p>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<p>🌿 Reference</p>
+
+<ul>
+  <li><a href="https://llighter.github.io/install-java-on-mac/" target="_blank">llighter.github.io</a></li>
+  <li><a href="https://yoonpunk.tistory.com/11" target="_blank">yoonpunk.tistory.com</a></li>
+</ul>
+
+:ET
