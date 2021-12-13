@@ -1,4 +1,6 @@
-I"�<p>친구와 프로젝트를 하나 시작해보려고 한다.😊</p>
+I"1<p><br /></p>
+
+<p>친구와 프로젝트를 하나 시작해보려고 한다.😊</p>
 
 <p>이번에 프론트앤드로 Nuxt.js를 사용하게 되었다. ex) <a href="https://nuxtjs.org/" target="_blank">NustJs 공식홈페이지</a></p>
 
@@ -38,7 +40,7 @@
 
 <p><br /></p>
 
-<h2 id="nextjs-프로젝트-만들기-1">Next.js 프로젝트 만들기</h2>
+<h2 id="nextjs-프로젝트-실행하기">Next.js 프로젝트 실행하기</h2>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#디레토리 이동
 $ cd bo-naem-front
@@ -49,7 +51,9 @@ $ yarn dev
 
 <p><img src="https://user-images.githubusercontent.com/42812764/145838793-12656acb-affe-4170-a1ad-776cb2976e78.png" alt="image" /></p>
 
-<p>아래와 같이 <a href="http://localhost:3000/" target="_blank">localhost:3000</a> 를 입력하면 Vuetify.js가 떠있는 것을 확인 할 수 있다.</p>
+<p>위의 사진과 같이 실행이 되면,</p>
+
+<p>아래 사진 처럼 주소창에 <a href="http://localhost:3000/" target="_blank">localhost:3000</a> 를 입력하면 Vuetify.js가 떠있는 것을 확인 할 수 있다.</p>
 
 <p>깔끔하게 프로젝트 생성 성공!✨</p>
 

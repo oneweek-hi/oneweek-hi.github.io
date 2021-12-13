@@ -62,10 +62,10 @@ $ yarn create nuxt-app bo-naem-front
 
 <br />
 
-## Next.js 프로젝트 만들기
+## Next.js 프로젝트 시작하기
 
 ```
-#디레토리 이동
+#디렉토리 이동
 $ cd bo-naem-front
 
 #프로젝트 실행

@@ -20,7 +20,7 @@ var store = [{
         "title": "[Project] Nuxt.js 프로젝트 시작하기",
         "excerpt":"친구와 프로젝트를 하나 시작해보려고 한다.😊 이번에 프론트앤드로 Nuxt.js를 사용하게 되었다. ex) NustJs 공식홈페이지 그래서 처음으로 프로젝트를 생성하고 실행하는 과정을 정리해보고자 한다. yarn 설치하기 #brew로 yarn 설치하기 $ brew install yarn #설치 되었는지 확인하기 $ yarn 위와 같이 설치가 되었음을 알 수 있다. Next.js 프로젝트 만들기 #프로젝트 만들기 #yarn create nuxt-app...","categories": ["Project"],
         "tags": [],
-        "url": "/project/Project-Nuxt.js-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/",
+        "url": "/project/Setting-Nuxt.js-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/",
         "teaser": null
       },{
         "title": "[Spring 강의] Spring 프로젝트 생성",
