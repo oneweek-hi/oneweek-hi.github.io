@@ -1,4 +1,123 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-12-10T07:48:01+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">oneweek-hi</title><subtitle>하나 둘 씩 정리해봅시다✨</subtitle><author><name>Han Juhui</name></author><entry><title type="html">Java 버전 바꾸기</title><link href="http://localhost:4000/setting/Java%EB%B2%84%EC%A0%84%EB%B0%94%EA%BE%B8%EA%B8%B0/" rel="alternate" type="text/html" title="Java 버전 바꾸기" /><published>2021-12-07T00:00:00+00:00</published><updated>2021-12-07T13:06:00+00:00</updated><id>http://localhost:4000/setting/Java%EB%B2%84%EC%A0%84%EB%B0%94%EA%BE%B8%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/setting/Java%EB%B2%84%EC%A0%84%EB%B0%94%EA%BE%B8%EA%B8%B0/">&lt;h2 id=&quot;자바-버전-바꾸기&quot;&gt;자바 버전 바꾸기&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-12-13T15:27:15+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">oneweek-hi</title><subtitle>하나 둘 씩 정리해봅시다✨</subtitle><author><name>Han Juhui</name></author><entry><title type="html">[Project] Nuxt.js 프로젝트 시작하기</title><link href="http://localhost:4000/project/Project-Nuxt.js-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="[Project] Nuxt.js 프로젝트 시작하기" /><published>2021-12-13T00:00:00+00:00</published><updated>2021-12-13T13:06:00+00:00</updated><id>http://localhost:4000/project/%5BProject%5D%20Nuxt.js%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/project/Project-Nuxt.js-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/">&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;친구와 프로젝트를 하나 시작해보려고 한다.😊&lt;/p&gt;
+
+&lt;p&gt;이번에 프론트앤드로 Nuxt.js를 사용하게 되었다. ex) &lt;a href=&quot;https://nuxtjs.org/&quot; target=&quot;_blank&quot;&gt;NustJs 공식홈페이지&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;그래서 처음으로 프로젝트를 생성하고 실행하는 과정을 정리해보고자 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;yarn-설치하기&quot;&gt;yarn 설치하기&lt;/h2&gt;
+
+&lt;div class=&quot;language-s highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;#brew로 yarn 설치하기&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;brew&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;install&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;yarn&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#설치 되었는지 확인하기&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;yarn&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/42812764/145818656-96a25c2a-d2ac-4874-9d89-4791f3f0714f.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;위와 같이 설치가 되었음을 알 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;nextjs-프로젝트-만들기&quot;&gt;Next.js 프로젝트 만들기&lt;/h2&gt;
+
+&lt;div class=&quot;language-s highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;#프로젝트 만들기&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#yarn create nuxt-app &amp;lt;프로젝트 이름&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;yarn&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nuxt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;naem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;front&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/42812764/145819369-e4c778b7-0c70-44ed-bcd5-09e306853f48.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;중간에 필요한 옵션들을 설정해주면 아래와 같이 프로젝트가 생성됨을 확인 할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/42812764/145819510-ee15ed25-66d5-44ad-b4aa-ef20084991f5.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;nextjs-프로젝트-만들기-1&quot;&gt;Next.js 프로젝트 만들기&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#디레토리 이동
+$ cd bo-naem-front
+
+#프로젝트 실행
+$ yarn dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/42812764/145838793-12656acb-affe-4170-a1ad-776cb2976e78.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;위의 사진과 같이 실행이 되면,&lt;/p&gt;
+
+&lt;p&gt;아래 사진 처럼 주소창에 &lt;a href=&quot;http://localhost:3000/&quot; target=&quot;_blank&quot;&gt;localhost:3000&lt;/a&gt; 를 입력하면 Vuetify.js가 떠있는 것을 확인 할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;깔끔하게 프로젝트 생성 성공!✨&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;1480&quot; alt=&quot;스크린샷 2021-12-13 오후 10 20 50&quot; src=&quot;https://user-images.githubusercontent.com/42812764/145819959-2d257dd1-13d4-4b9a-a103-a30d292b7f64.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;🌿 Reference&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://fkkmemi.github.io/nuxt/nuxt-002-install/&quot; target=&quot;_blank&quot;&gt;fkkmemi.github.io&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://velog.io/@brviolet/Nuxt.js-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0-1.-%EC%84%A4%EC%B9%98&quot; target=&quot;_blank&quot;&gt;velog.io/@brviolet&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Han Juhui</name></author><category term="Project" /><summary type="html">😊 Nuxt.js 처음 사용해보기</summary></entry><entry><title type="html">[Spring 강의] Spring 프로젝트 생성</title><link href="http://localhost:4000/spring%20%EA%B0%95%EC%9D%98/Spring-%EA%B0%95%EC%9D%98-Spring-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%83%9D%EC%84%B1/" rel="alternate" type="text/html" title="[Spring 강의] Spring 프로젝트 생성" /><published>2021-12-13T00:00:00+00:00</published><updated>2021-12-13T13:06:00+00:00</updated><id>http://localhost:4000/spring%20%EA%B0%95%EC%9D%98/%5BSpring%20%EA%B0%95%EC%9D%98%5D%20Spring%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%83%9D%EC%84%B1</id><content type="html" xml:base="http://localhost:4000/spring%20%EA%B0%95%EC%9D%98/Spring-%EA%B0%95%EC%9D%98-Spring-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%83%9D%EC%84%B1/">&lt;h2 id=&quot;1-프로젝트-생성&quot;&gt;1. 프로젝트 생성&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/42812764/145776986-a9105748-005f-4d66-a8ae-6aa81a4fd40b.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;🌿 &lt;a href=&quot;https://start.spring.io/&quot; target=&quot;_blank&quot;&gt;Start spring&lt;/a&gt; 에 가서 프로젝트를 생성!&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;가장 안정화된 최신버전을 사용한다. (SNAPSHOT이나 M 버전은 아직 안정화 된 버전이 아님)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Artifact가 결과적으로 프로젝트 빌드명이 되는 것!&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;보통 Packaging은 jar을 사용한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Dependencies는 아무것도 선택하지 않으면 코어 쪽 라이브러리만 가지고 가장 간단하게 구성해 준다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;그 후, zip파일을 다운로드 받은 뒤에 인텔리제이로 import 한다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/42812764/145779727-b7059279-1dc9-46ef-8931-f5d1575dd252.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;​		⇒ 실행 버튼을 눌렀을 때 잘 실행 되는 것을 확인 할 수 있다!&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Preferences &amp;gt; gradle &amp;gt; Build and run using을 Intellj IDEA로 바꾸어 주면 좀 더 빠르게 실행할 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img width=&quot;1094&quot; alt=&quot;스크린샷 2021-12-13 오후 5 45 36&quot; src=&quot;https://user-images.githubusercontent.com/42812764/145780097-5497c98e-90dc-4f2c-8f9f-1f452ea5de5c.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;🌿 인프런 &lt;a href=&quot;https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-%ED%95%B5%EC%8B%AC-%EC%9B%90%EB%A6%AC-%EA%B8%B0%EB%B3%B8%ED%8E%B8&quot; target=&quot;_blank&quot;&gt;스프링 핵심 원리 기본편: 김영한&lt;/a&gt; 님의 강의를 듣고 정리한 내용입니다.&lt;/p&gt;</content><author><name>Han Juhui</name></author><category term="Spring 강의" /><summary type="html">🌿 스프링 핵심 원리/기본편:강의 정리2</summary></entry><entry><title type="html">[Setting] Java 버전 바꾸기</title><link href="http://localhost:4000/setting/Setting-Java%EB%B2%84%EC%A0%84%EB%B0%94%EA%BE%B8%EA%B8%B0/" rel="alternate" type="text/html" title="[Setting] Java 버전 바꾸기" /><published>2021-12-07T00:00:00+00:00</published><updated>2021-12-07T13:06:00+00:00</updated><id>http://localhost:4000/setting/%5BSetting%5D%20Java%EB%B2%84%EC%A0%84%EB%B0%94%EA%BE%B8%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/setting/Setting-Java%EB%B2%84%EC%A0%84%EB%B0%94%EA%BE%B8%EA%B8%B0/">&lt;h2 id=&quot;자바-버전-바꾸기&quot;&gt;자바 버전 바꾸기&lt;/h2&gt;
 
 &lt;p&gt;Mac OS에는 여러 버전의 자바를 설치하고, 상황에 따라 버전을 바꾸어 가며 사용할 수 있다.&lt;/p&gt;
 
@@ -108,7 +227,7 @@
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://llighter.github.io/install-java-on-mac/&quot; target=&quot;_blank&quot;&gt;llighter.github.io&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://yoonpunk.tistory.com/11&quot; target=&quot;_blank&quot;&gt;yoonpunk.tistory.com&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Han Juhui</name></author><category term="Setting" /><summary type="html">☕️ Java 버전 바꾸는 방법 for Mac</summary></entry><entry><title type="html">Spring이란?</title><link href="http://localhost:4000/spring/spring%EC%9D%B4%EB%9E%80/" rel="alternate" type="text/html" title="Spring이란?" /><published>2021-12-06T00:00:00+00:00</published><updated>2021-12-06T13:06:00+00:00</updated><id>http://localhost:4000/spring/spring%EC%9D%B4%EB%9E%80</id><content type="html" xml:base="http://localhost:4000/spring/spring%EC%9D%B4%EB%9E%80/">&lt;h2 id=&quot;1-spring-이란&quot;&gt;1. Spring 이란?&lt;/h2&gt;
+&lt;/ul&gt;</content><author><name>Han Juhui</name></author><category term="Setting" /><summary type="html">☕️ Java 버전 바꾸는 방법 for Mac</summary></entry><entry><title type="html">[Spring 강의] Spring이란?</title><link href="http://localhost:4000/spring%20%EA%B0%95%EC%9D%98/Spring-%EA%B0%95%EC%9D%98-Spring%EC%9D%B4%EB%9E%80/" rel="alternate" type="text/html" title="[Spring 강의] Spring이란?" /><published>2021-12-06T00:00:00+00:00</published><updated>2021-12-06T13:06:00+00:00</updated><id>http://localhost:4000/spring%20%EA%B0%95%EC%9D%98/%5BSpring%20%EA%B0%95%EC%9D%98%5D%20Spring%EC%9D%B4%EB%9E%80</id><content type="html" xml:base="http://localhost:4000/spring%20%EA%B0%95%EC%9D%98/Spring-%EA%B0%95%EC%9D%98-Spring%EC%9D%B4%EB%9E%80/">&lt;h2 id=&quot;1-spring-이란&quot;&gt;1. Spring 이란?&lt;/h2&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/42812764/144845101-cd05d2e2-984c-46bd-85bb-da52dbddc32f.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
@@ -450,7 +569,7 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;🌿 인프런 &lt;a href=&quot;https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-%ED%95%B5%EC%8B%AC-%EC%9B%90%EB%A6%AC-%EA%B8%B0%EB%B3%B8%ED%8E%B8&quot; target=&quot;_blank&quot;&gt;스프링 핵심 원리 기본편: 김영한&lt;/a&gt; 님의 강의를 듣고 정리한 내용입니다.&lt;/p&gt;</content><author><name>Han Juhui</name></author><category term="Spring" /><summary type="html">🌿 스프링 핵심 원리/기본편:강의 정리1</summary></entry><entry><title type="html">github.io 블로그 시작하기</title><link href="http://localhost:4000/blog/start/" rel="alternate" type="text/html" title="github.io 블로그 시작하기" /><published>2021-12-01T00:00:00+00:00</published><updated>2021-12-01T13:06:00+00:00</updated><id>http://localhost:4000/blog/start</id><content type="html" xml:base="http://localhost:4000/blog/start/">&lt;p&gt;12월을 시작하면서 블로그를 다시 처음 부터 시작하려고 한다.&lt;/p&gt;
+&lt;p&gt;🌿 인프런 &lt;a href=&quot;https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-%ED%95%B5%EC%8B%AC-%EC%9B%90%EB%A6%AC-%EA%B8%B0%EB%B3%B8%ED%8E%B8&quot; target=&quot;_blank&quot;&gt;스프링 핵심 원리 기본편: 김영한&lt;/a&gt; 님의 강의를 듣고 정리한 내용입니다.&lt;/p&gt;</content><author><name>Han Juhui</name></author><category term="Spring 강의" /><summary type="html">🌿 스프링 핵심 원리/기본편:강의 정리1</summary></entry><entry><title type="html">[Daily] github.io 블로그 시작하기</title><link href="http://localhost:4000/daily/start/" rel="alternate" type="text/html" title="[Daily] github.io 블로그 시작하기" /><published>2021-12-01T00:00:00+00:00</published><updated>2021-12-01T13:06:00+00:00</updated><id>http://localhost:4000/daily/start</id><content type="html" xml:base="http://localhost:4000/daily/start/">&lt;p&gt;12월을 시작하면서 블로그를 다시 처음 부터 시작하려고 한다.&lt;/p&gt;
 
 &lt;p&gt;죽이 되든 밥이 되든 여기가 내 평생 정착지가 되어야만 한다.✨&lt;/p&gt;
 
@@ -464,4 +583,4 @@
 
 &lt;p&gt;일단 올해 남은 한달 동안은 알고리즘 강의랑, Spring 강의를 들을 계획이다. (&lt;del&gt;토익도 해야하는데&lt;/del&gt;)&lt;/p&gt;
 
-&lt;p&gt;한달 뒤에 이 글이 많이많이 뒤에 있었으면 좋겠다! ^^&lt;/p&gt;</content><author><name>Han Juhui</name></author><category term="Blog" /><category term="Blog" /><summary type="html">하나 둘 씩 정리해봅시다✨</summary></entry></feed>
+&lt;p&gt;한달 뒤에 이 글이 많이많이 뒤에 있었으면 좋겠다! ^^&lt;/p&gt;</content><author><name>Han Juhui</name></author><category term="Daily" /><summary type="html">하나 둘 씩 정리해봅시다✨</summary></entry></feed>
