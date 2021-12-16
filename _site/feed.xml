@@ -1,4 +1,60 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-12-13T15:58:24+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">oneweek-hi</title><subtitle>하나 둘 씩 정리해봅시다✨</subtitle><author><name>Han Juhui</name></author><entry><title type="html">[Project] Nuxt.js 프로젝트 시작하기</title><link href="http://localhost:4000/project/Setting-Nuxt.js-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="[Project] Nuxt.js 프로젝트 시작하기" /><published>2021-12-13T00:00:00+00:00</published><updated>2021-12-13T13:06:00+00:00</updated><id>http://localhost:4000/project/%5BSetting%5D%20Nuxt.js%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/project/Setting-Nuxt.js-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/">&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-12-16T13:15:09+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">oneweek-hi</title><subtitle>하나 둘 씩 정리해봅시다✨</subtitle><author><name>Han Juhui</name></author><entry><title type="html">[Project] MAMP 로컬 서버 구축하기</title><link href="http://localhost:4000/project/Setting-MAMP-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="[Project] MAMP 로컬 서버 구축하기" /><published>2021-12-16T00:00:00+00:00</published><updated>2021-12-16T13:06:00+00:00</updated><id>http://localhost:4000/project/%5BSetting%5D%20MAMP%20%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/project/Setting-MAMP-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0/">&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;mamp란&quot;&gt;MAMP란?&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/42812764/146374451-059fdf3c-c971-4bcb-b9b3-617aa9e3b149.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;MAMP를 사용하면 로컬에 PHP,웹 서버, MySQL서버 환경 구축을 한번에 할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;이번 프로젝트를 진행할 때 MAMP를 사용하기로 결정!&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;mamp-설치&quot;&gt;MAMP 설치&lt;/h2&gt;
+
+&lt;p&gt;🐘 &lt;a href=&quot;https://www.mamp.info/en/mamp/mac/&quot; target=&quot;_blank&quot;&gt;MAMP 홈페이지&lt;/a&gt;에 가서 자신의 컴퓨터 환경에 알맞게 다운로드 한 뒤, pkg 파일을 설치하면 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;732&quot; alt=&quot;스크린샷 2021-12-16 오후 9 16 57&quot; src=&quot;https://user-images.githubusercontent.com/42812764/146371229-a4110a4b-cb3f-4bd5-af96-c0204013b5bb.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;mamp-사용하기&quot;&gt;MAMP 사용하기&lt;/h2&gt;
+
+&lt;p&gt;설치한 뒤에 처음으로 열어보면, 아래와 같은 모습이다. 오른쪽의 start 버튼을 누르기 전에 Preferences에서 자신이 활용할 데이터 베이스 포트와 맞도록 연결시켜야 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;648&quot; alt=&quot;스크린샷 2021-12-16 오후 9 46 58&quot; src=&quot;https://user-images.githubusercontent.com/42812764/146374864-9a4b8d90-505d-43db-8887-c96b15f565ea.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Mysql를 사용할 계획이라 80이랑 3306으로 포트를 설정하였다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;648&quot; alt=&quot;스크린샷 2021-12-16 오후 9 47 06&quot; src=&quot;https://user-images.githubusercontent.com/42812764/146375256-c6fe1930-5fdc-472a-b7e2-1b09eac7ffac.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;그 후 start버튼을 누르면, 아래와 같은 페이지가 뜬다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;1494&quot; alt=&quot;스크린샷 2021-12-16 오후 9 30 50&quot; src=&quot;https://user-images.githubusercontent.com/42812764/146375559-efba25fc-b753-43ae-9e3a-37b5b964e958.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;아직 아무것도 작성하지 않았기 때문에 로컬 페이지는 아래와 같이 뜨고,&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;1352&quot; alt=&quot;스크린샷 2021-12-16 오후 9 30 30&quot; src=&quot;https://user-images.githubusercontent.com/42812764/146375800-8bdcdad7-c803-4412-ab1a-d3b7a75ac4d4.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;phpMyAdmin에 database를 만들고 계획했던 테이블들을 만들어 주면 끝!&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;1352&quot; alt=&quot;스크린샷 2021-12-16 오후 9 30 24&quot; src=&quot;https://user-images.githubusercontent.com/42812764/146376072-30230415-e10a-40cc-ae70-d44bf6358a66.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;P.S 데이터 베이스  ERD 그릴 때 📝&lt;a href=&quot;https://aquerytool.com/&quot; target=&quot;_blank&quot;&gt;aquerytool&lt;/a&gt;를 사용했다.&lt;/p&gt;
+
+&lt;p&gt;그리기도 쉽고 그리고 나서 쿼리문 까지 다 만들어주기 때문이다.하지만 이번에 보니 유로로 바뀐 것 같다..ㅠ 혹시 체험판 사용할 수 있는지 확인해보고 사용하시는 걸 추천한다!&lt;/p&gt;</content><author><name>Han Juhui</name></author><category term="Project" /><summary type="html">🐘 MAMP 짱짱맨</summary></entry><entry><title type="html">[Project] Nuxt.js 프로젝트 시작하기</title><link href="http://localhost:4000/project/Setting-Nuxt.js-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="[Project] Nuxt.js 프로젝트 시작하기" /><published>2021-12-13T00:00:00+00:00</published><updated>2021-12-13T13:06:00+00:00</updated><id>http://localhost:4000/project/%5BSetting%5D%20Nuxt.js%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/project/Setting-Nuxt.js-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/">&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;친구와 프로젝트를 하나 시작해보려고 한다.😊&lt;/p&gt;
 

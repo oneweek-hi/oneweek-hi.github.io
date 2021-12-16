@@ -28,4 +28,10 @@ var store = [{
         "tags": [],
         "url": "/spring%20%EA%B0%95%EC%9D%98/Spring-%EA%B0%95%EC%9D%98-Spring-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%83%9D%EC%84%B1/",
         "teaser": null
+      },{
+        "title": "[Project] MAMP 로컬 서버 구축하기",
+        "excerpt":"MAMP란? MAMP를 사용하면 로컬에 PHP,웹 서버, MySQL서버 환경 구축을 한번에 할 수 있다. 이번 프로젝트를 진행할 때 MAMP를 사용하기로 결정! MAMP 설치 🐘 MAMP 홈페이지에 가서 자신의 컴퓨터 환경에 알맞게 다운로드 한 뒤, pkg 파일을 설치하면 된다. MAMP 사용하기 설치한 뒤에 처음으로 열어보면, 아래와 같은 모습이다. 오른쪽의 start 버튼을 누르기 전에...","categories": ["Project"],
+        "tags": [],
+        "url": "/project/Setting-MAMP-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0/",
+        "teaser": null
       }]
