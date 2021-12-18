@@ -34,4 +34,10 @@ var store = [{
         "tags": [],
         "url": "/project/Setting-MAMP-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0/",
         "teaser": null
+      },{
+        "title": "[Daily] SQLD 시험 후기",
+        "excerpt":"SQLD 시험 후기 살면서 이정도 턱걸이 합격은 본적이 없다. 두눈을 의심했다.. 삼일 공부하고 시험봐서 이거 붙을려나… 하고 시험만 보고 오자라는 마음으로 갔는데 참 결과가 재밌다. 노란색 책을 풀면서 생각보다 난이도가 높아서 오..? 생각보다 어려운데 삼일컷은 너무 벼락치기 라는 생각이 들었다. 하지만 노란색책은 SQLP까지 커버하는 난이도 였나보다. 막상 시험장에서 문제는 훨씬...","categories": ["Daily"],
+        "tags": [],
+        "url": "/daily/Daily-SLQD-%EB%B6%99%EC%97%88%EB%8B%A4/",
+        "teaser": null
       }]

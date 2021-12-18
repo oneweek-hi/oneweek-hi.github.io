@@ -19,15 +19,20 @@
     {% include_cached browser-upgrade.html %}
     {% include_cached masthead.html %}
 
+
+
     <div class="initial-content">
       {{ content }}
     </div>
+
 
     {% if site.search == true %}
       <div class="search-content">
         {% include_cached search/search_form.html %}
       </div>
     {% endif %}
+
+
 
     <div id="footer" class="page__footer">
       <footer>
@@ -38,13 +43,6 @@
 
     {% include scripts.html %}
 
-    <script src="https://utteranc.es/client.js"
-      repo="jojoldu/jojoldu.github.io"
-      issue-term="pathname"
-      theme="github-light"
-      crossorigin="anonymous"
-      async>
-    </script>
 
   </body>
 </html>

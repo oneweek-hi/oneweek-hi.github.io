@@ -1,4 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-12-16T13:16:38+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">oneweek-hi</title><subtitle>하나 둘 씩 정리해봅시다✨</subtitle><author><name>Han Juhui</name></author><entry><title type="html">[Project] MAMP 로컬 서버 구축하기</title><link href="http://localhost:4000/project/Setting-MAMP-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="[Project] MAMP 로컬 서버 구축하기" /><published>2021-12-16T00:00:00+00:00</published><updated>2021-12-16T13:06:00+00:00</updated><id>http://localhost:4000/project/%5BSetting%5D%20MAMP%20%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/project/Setting-MAMP-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0/">&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-12-18T15:15:59+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">oneweek-hi</title><subtitle>하나 둘 씩 정리해봅시다✨</subtitle><author><name>Han Juhui</name></author><entry><title type="html">[Daily] SQLD 시험 후기</title><link href="http://localhost:4000/daily/Daily-SLQD-%EB%B6%99%EC%97%88%EB%8B%A4/" rel="alternate" type="text/html" title="[Daily] SQLD 시험 후기" /><published>2021-12-17T00:00:00+00:00</published><updated>2021-12-17T13:06:00+00:00</updated><id>http://localhost:4000/daily/%5BDaily%5D%20SLQD%20%EB%B6%99%EC%97%88%EB%8B%A4</id><content type="html" xml:base="http://localhost:4000/daily/Daily-SLQD-%EB%B6%99%EC%97%88%EB%8B%A4/">&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;sqld-시험-후기&quot;&gt;SQLD 시험 후기&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/42812764/146562794-f6585e05-5b3d-4571-b774-2e36aa4fec7a.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;살면서 이정도 턱걸이 합격은 본적이 없다. 두눈을 의심했다..&lt;/p&gt;
+
+&lt;p&gt;삼일 공부하고 시험봐서 이거 붙을려나… 하고 시험만 보고 오자라는 마음으로 갔는데 참 결과가 재밌다.&lt;/p&gt;
+
+&lt;p&gt;노란색 책을 풀면서 생각보다 난이도가 높아서 오..? 생각보다 어려운데 삼일컷은 너무 벼락치기 라는 생각이 들었다.&lt;/p&gt;
+
+&lt;p&gt;하지만 노란색책은 SQLP까지 커버하는 난이도 였나보다. 막상 시험장에서 문제는 훨씬 쉬웠으니깐.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;턱걸이로 붙은 내가 꿀팁을 말하기에는 조금 웃기지만, 각각 함수들의 역할을 제대로 아는게 젤 중요한 것 같다.&lt;/p&gt;
+
+&lt;p&gt;결과값이 어떻게 나오는지! 그게 제일 문제로 출제 된 것 같다.&lt;/p&gt;
+
+&lt;p&gt;일단 붙어서 정말 감사하다. 다음에는 꼭 넉넉한 시간동안 공부를 꾸준히 해서 시험 보러 갈 수 있기를 바란다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name>Han Juhui</name></author><category term="Daily" /><summary type="html">노랑색 책과 함께라면 진짜 붙는구나😄</summary></entry><entry><title type="html">[Project] MAMP 로컬 서버 구축하기</title><link href="http://localhost:4000/project/Setting-MAMP-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="[Project] MAMP 로컬 서버 구축하기" /><published>2021-12-16T00:00:00+00:00</published><updated>2021-12-16T13:06:00+00:00</updated><id>http://localhost:4000/project/%5BSetting%5D%20MAMP%20%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0</id><content type="html" xml:base="http://localhost:4000/project/Setting-MAMP-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0/">&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;mamp란&quot;&gt;MAMP란?&lt;/h2&gt;
 

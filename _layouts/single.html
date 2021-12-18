@@ -67,12 +67,15 @@ layout: default
       {% if page.share %}{% include social-share.html %}{% endif %}
 
       {% include post_pagination.html %}
+      
+
     </div>
 
     {% if jekyll.environment == 'production' and site.comments.provider and page.comments %}
       {% include comments.html %}
     {% endif %}
   </article>
+
 
   {% comment %}<!-- only show related on a post page when `related: true` -->{% endcomment %}
   {% if page.id and page.related and site.related_posts.size > 0 %}
@@ -85,6 +88,7 @@ layout: default
       </div>
     </div>
   {% comment %}<!-- otherwise show recent posts if no related when `related: true` -->{% endcomment %}
+  
   {% elsif page.id and page.related %}
     <div class="page__related">
       <h2 class="page__related-title">{{ site.data.ui-text[site.locale].related_label | default: "You May Also Enjoy" }}</h2>
@@ -96,6 +100,15 @@ layout: default
           {% include archive-single.html type="grid" %}
         {% endfor %}
       </div>
+
     </div>
   {% endif %}
+  
 </div>
+<script src="https://utteranc.es/client.js"
+repo="oneweek-hi/oneweek-hi.github.io"
+issue-term="pathname"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
