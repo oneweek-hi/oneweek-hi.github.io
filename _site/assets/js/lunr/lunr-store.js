@@ -40,4 +40,10 @@ var store = [{
         "tags": [],
         "url": "/daily/Daily-SLQD-%EB%B6%99%EC%97%88%EB%8B%A4/",
         "teaser": null
+      },{
+        "title": "[Project] Nuxt.js 구조 알아보기",
+        "excerpt":"디렉토리 구조 알아보기 +수정 중…. Assets: css 파일 담아 놓는 곳 sccs는 구조에 맞에 괄호 맞게 사용 할 수 있다. 구조 파악에 훨씬 쉽다 일자로 점찍고 하는 것보다 훨씬 쉬움. 컴포넌트 이해가 쉽다. 안에 내용물은 css랑 똑같지만 형식만 다르다고 보면됨 아직 처음이여서 View 파일 안에 tempelet, 스크립트, 스타일을 한번에 다...","categories": ["Project"],
+        "tags": [],
+        "url": "/project/Project-Nuxt.js-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/",
+        "teaser": null
       }]

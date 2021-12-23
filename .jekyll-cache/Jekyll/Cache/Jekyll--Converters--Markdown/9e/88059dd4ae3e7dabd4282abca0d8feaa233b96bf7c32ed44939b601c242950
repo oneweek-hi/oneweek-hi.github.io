@@ -1,0 +1,83 @@
+I"<p><br /></p>
+
+<h2 id="디렉토리-구조-알아보기">디렉토리 구조 알아보기</h2>
+
+<p>+수정 중….</p>
+
+<p><br /><br /></p>
+
+<p><img src="https://user-images.githubusercontent.com/42812764/147208925-6f42ca41-23b0-44d0-b504-7571da8d19c5.png" alt="image" style="zoom:40%; align: center;" /></p>
+
+<p>Assets: css 파일 담아 놓는 곳</p>
+
+<p>sccs는 구조에 맞에 괄호 맞게 사용 할 수 있다. 구조 파악에 훨씬 쉽다</p>
+
+<p>일자로 점찍고 하는 것보다 훨씬 쉬움. 컴포넌트 이해가 쉽다.</p>
+
+<p>안에 내용물은 css랑 똑같지만 형식만 다르다고 보면됨</p>
+
+<p>아직 처음이여서 View 파일 안에 tempelet, 스크립트, 스타일을 한번에 다 쓰지만, 나중에 분리할때</p>
+
+<p>assets으로 파일화 해서 옮기면 된다.</p>
+
+<p>Pages: Router의 url 같은 것</p>
+
+<p>그냥 view.js를 쓰면 설정 파일에서 일리리 설정해 줘야 하는데 nuxt를 사용하면 하지 않아도 페이지가 해준다.</p>
+
+<p>라우팅이 알아서 다된다.</p>
+
+<p><img src="/Users/juhuihan/Library/Application Support/typora-user-images/image-20211223155057947.png" alt="image-20211223155057947" /></p>
+
+<p>인덱스에 코드를 다 짜면 복잡해 지니깐 여기 내용들을 이제 components에 저장을 한다.</p>
+
+<p>같은 파일 구조를 만들어서 저장!</p>
+
+<p>로그인 컴포너트를 불러와라라고 template에서 말을 하면 script에서 임포트한다. template에서 쓰려면  components에 등록을 미리 해놔야 한다.</p>
+
+<p>vue파일안에서 변수를 쓰려면, script의 data에 미리 설정을 해야 한다. 즉 변수를 모아놓는 것.</p>
+
+<p>method는 뭔가를 클릭하거나 함수를 실행할때 필요한 함수들을 모아놓는 것.</p>
+
+<p>content나 layout은 아직은 별로 안중요함.</p>
+
+<p>plugin이 조금 중요하다!</p>
+
+<p>모바일 기기인지 아닌지 판단할때 슨느 것</p>
+
+<p>mixins의 안에 js파일들이 주르륵 생기는데 여기서 쓰는 함수는 전역적으로 쓸 함수들을 모아 놓는 곳이라고 보면 된다.</p>
+
+<p>용도에 맞게 쓰는것. 그래서 로그인에 필요한 함수들을 모아 놓거나 이런 방식으로!</p>
+
+<p>예를 들어  Common.js는 디바이스가 무엇인지 판별해서 그에 맞는 화면을 보여 주도록 하는 것@]</p>
+
+<p>computed는 변수를 모아 놓는 곳이긴 한데, 처음에 랜더링 할때 마운티드가 있는데</p>
+
+<p>Nuxt의 라이프 사이클이 mounted가 먼저되고 그다음에 computed가 된다</p>
+
+<p>마운티드는 처음 모습 한번하는 것이 computed는 변화가 있을때 변화를 계속 인지해서, 계속 확인해가지고 기기에 맞게 보여주도록 하는 것</p>
+
+<p><img src="/Users/juhuihan/Library/Application Support/typora-user-images/image-20211223161628126.png" alt="image-20211223161628126" /></p>
+
+<p>처음 화면 보여주는 곳.</p>
+
+<p>플러그인에 mixins를 추가하려면,</p>
+
+<p>Next.config.js의 <img src="/Users/juhuihan/Library/Application Support/typora-user-images/image-20211223161804901.png" alt="image-20211223161804901" /></p>
+
+<p>여기다 추가하면된다. 이렇게 하면 나중에 과부하가 걸릴 수 있지만 일단 초반이라서 이렇게 하도록 하겠다 이후에 import로!</p>
+
+<p>staitc이랑 store은 나중에 추가하는 것으로</p>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<p>P.S 데이터 베이스  ERD 그릴 때 📝<a href="https://aquerytool.com/" target="_blank">aquerytool</a>를 사용했다.</p>
+
+<p>그리기도 쉽고 그리고 나서 쿼리문 까지 다 만들어주기 때문이다.하지만 이번에 보니 유로로 바뀐 것 같다..ㅠ 혹시 체험판 사용할 수 있는지 확인해보고 사용하시는 걸 추천한다!</p>
+
+:ET
