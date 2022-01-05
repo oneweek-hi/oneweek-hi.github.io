@@ -73,7 +73,7 @@ method는 뭔가를 클릭하거나 함수를 실행할때 필요한 함수들�
 
 
 
-plugin이 조금 중요하다!
+4. plugin 중요!
 
 모바일 기기인지 아닌지 판단할때 슨느 것 
 
@@ -101,15 +101,19 @@ Nuxt의 라이프 사이클이 mounted가 먼저되고 그다음에 computed가 
 
 플러그인에 mixins를 추가하려면, 
 
-Next.config.js의 ![image-20211223161804901](/Users/juhuihan/Library/Application Support/typora-user-images/image-20211223161804901.png)
+Nuxt.config.js의 ![image-20211223161804901](/Users/juhuihan/Library/Application Support/typora-user-images/image-20211223161804901.png)
 
 
 
 여기다 추가하면된다. 이렇게 하면 나중에 과부하가 걸릴 수 있지만 일단 초반이라서 이렇게 하도록 하겠다 이후에 import로!
 
+head는 자바 스크립트 관련된 것을 설정해 줄때 한다. 
+
+네이버 로그인을 head의 script에 다가 추가한다. 
+
 staitc이랑 store은 나중에 추가하는 것으로
 
-
+computed는 
 
 
 
