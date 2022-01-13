@@ -1,0 +1,90 @@
+I"1<p><br />오늘의 추가 문제는 🚀 <a href="https://www.acmicpc.net/problem/1959" target="_blank">백준 1959번: 달팽이3 </a>이다.</p>
+
+<p>2번이랑 내용이 똑같네! 이러면서 덤볐다가</p>
+
+<p><img src="https://user-images.githubusercontent.com/42812764/148951587-4cf2f090-d8e3-432c-baa2-695817fd3ce7.png" alt="image" /></p>
+
+<p>input을 보고.. 이것은… 일반적인 구현방법으로 절대 풀수 없다는 걸 깨달았다. 흑.</p>
+
+<p><del>왠지 정답률 퍼센티지가 낮더라..</del></p>
+
+<p><br /><br /><br /></p>
+
+<h3 id="테스트케이스-이해하기">테스트케이스 이해하기</h3>
+
+<p><img src="https://user-images.githubusercontent.com/42812764/148952751-f2e164c0-922a-45ad-a427-48c5ae644053.png" alt="image" /></p>
+
+<p>달팽이 2랑 비슷한데, 어디서 끝나는지 좌표까지 프린트 해야한다!</p>
+
+<p><br /><br /></p>
+
+<h3 id="알고리즘">알고리즘</h3>
+
+<p>이건 규칙을 찾고 수학적으로 풀어야 한다고 생각을 했기 때문에, 여러 방법을 시도했지만 모두 실패하였다…</p>
+
+<p>그래서 이번에도 인강을 듣고.. 해결하였다!</p>
+
+<p><img src="https://user-images.githubusercontent.com/42812764/148955082-a1934847-f66e-469d-845f-d4a4bb278500.jpeg" alt="달팽이3" /></p>
+
+<ol>
+  <li>제일 안쪽에 있는 층을 제외하고는 각 층마다 방향이 바뀌는 부분은 총 4곳이다.</li>
+  <li>레이어가 한 층씩 들어갈 갈수록 n,m의 크기는 -2씩 작아진다.</li>
+  <li>마지막 레이어는 n이나 m이 1 or 2 가 되는 경우이다.</li>
+  <li>3번의 경우에 아래와 같이 총 4가지 경우가 나온다. 각 경우마다 필요한 값들을 계산해주면 된다!</li>
+</ol>
+
+<p><img src="https://user-images.githubusercontent.com/42812764/148958109-3e0cf369-da58-4d2b-b0dc-10791f0ef43c.png" alt="image" /></p>
+
+<p><br /><br /></p>
+
+<h3 id="정답코드">정답코드</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">n</span><span class="p">,</span><span class="n">m</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
+<span class="n">count</span> <span class="o">=</span> <span class="n">result</span><span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="n">n</span><span class="o">&gt;</span><span class="mi">2</span> <span class="ow">and</span> <span class="n">m</span><span class="o">&gt;</span><span class="mi">2</span><span class="p">:</span>
+    <span class="n">n</span> <span class="o">-=</span><span class="mi">2</span>
+    <span class="n">m</span> <span class="o">-=</span><span class="mi">2</span>
+    <span class="n">count</span> <span class="o">+=</span><span class="mi">1</span>
+    <span class="n">result</span> <span class="o">+=</span> <span class="mi">4</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">y</span> <span class="o">=</span> <span class="n">count</span><span class="o">+</span><span class="mi">1</span>
+
+<span class="c1">#아래 처럼 하면 for문을 돌리지 않아도 되서 시간을 단축할 수 있다. 
+# d = (min(n, m) - 1) // 2
+# ans = 4*d
+# row = 1+d
+# col = 1+d
+# n -= 2*d
+# m -= 2*d
+</span>
+<span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">y</span> <span class="o">+=</span> <span class="p">(</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">elif</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">+=</span><span class="mi">1</span>
+    <span class="n">x</span> <span class="o">+=</span><span class="p">(</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">+=</span> <span class="mi">2</span>
+    <span class="n">x</span> <span class="o">+=</span><span class="mi">1</span>
+
+<span class="k">elif</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">+=</span><span class="mi">3</span>
+    <span class="n">x</span> <span class="o">+=</span><span class="mi">1</span>
+
+
+
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<p>🚀Reference:   <a href="https://www.acmicpc.net/problem/1959" target="_blank">백준 1959번 -  달팽이3 </a></p>
+
+<p><br /></p>
+
+:ET

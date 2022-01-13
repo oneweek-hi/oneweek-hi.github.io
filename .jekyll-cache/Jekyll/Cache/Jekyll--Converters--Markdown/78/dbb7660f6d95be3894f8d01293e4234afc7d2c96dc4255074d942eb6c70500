@@ -1,0 +1,54 @@
+I"Q<p><br />오늘의 문제는 🚀 <a href="https://www.acmicpc.net/problem/16922" target="_blank">백준 16922번: 로마 숫자 만들기</a>이다.</p>
+
+<p>왜 맨날 어려울까.. 슬프다</p>
+
+<p>대충 콤비네이션으로 계산했을 때, 4^20개의 경우가 나와서 어떻게 해야하지 고민을 많이 했다.</p>
+
+<p>고민고민하다 힌트를 얻어서 풀어보니, n개를 각각 잘 배분해서 중복을 없애는 방법이 답이라고 생각했다.</p>
+
+<p><br /><br /><br /></p>
+
+<h3 id="테스트케이스-이해하기">테스트케이스 이해하기</h3>
+
+<p><img src="https://user-images.githubusercontent.com/42812764/148560399-27da2e3d-a2d5-4bce-a05d-b5d449d27aa1.png" alt="image" /></p>
+
+<p>처음에 콤비네이션을 구한 다음에 중복한 n개 만큼 더해주면 될거라 생각해서 간단할 줄 알았는데,  아니였다.</p>
+
+<p>여러 방식으로 곱해보고 생각하는 시간을 많이 가졌다!</p>
+
+<p><br /><br /></p>
+
+<h3 id="알고리즘">알고리즘</h3>
+
+<ol>
+  <li>중복을 없애기 위해 set 선언</li>
+  <li>삼중 for문을 활용해서 n을 i, j, k, 나머지로 나눈다.</li>
+  <li>각각의 값에 가중치를 곱해서 set에 추가해준다.</li>
+  <li>set의 길이를 프린트해주면 끝!</li>
+</ol>
+
+<p><br /><br /></p>
+
+<h3 id="정답코드">정답코드</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">unique</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([])</span>
+
+<span class="c1">#n개를 나눠가지기 위해
+</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="n">i</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="p">):</span>
+            <span class="n">unique</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="mi">5</span><span class="o">*</span><span class="n">j</span><span class="o">+</span><span class="mi">10</span><span class="o">*</span><span class="n">k</span><span class="o">+</span><span class="mi">50</span><span class="o">*</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="o">-</span><span class="n">k</span><span class="p">))</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">unique</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<p>🚀Reference:  <a href="https://www.acmicpc.net/problem/16922" target="_blank">백준 16922번 - 로마 숫자 만들기</a></p>
+
+<p><br /></p>
+
+:ET

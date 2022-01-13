@@ -1,0 +1,68 @@
+I"�<p><br /></p>
+
+<p>3일 전부터 하루에 한 문제씩 남자친구랑 같이 풀고 있다!</p>
+
+<p>오늘의 문제는 🚀<a href="https://www.acmicpc.net/problem/2056" target="_blank">백준 2056번: 작업</a>이다.</p>
+
+<p>테스트케이스 그림그리고 이해하는데 오래 걸려서, 이럴려면 되려나 하고 코드 썼는데 한번에 풀렸다~! 만세~!</p>
+
+<p><br /><br /></p>
+
+<h3 id="테스트케이스-이해하기">테스트케이스 이해하기</h3>
+
+<p><img src="https://user-images.githubusercontent.com/42812764/148235121-c321110d-42a3-4933-9caa-1482c017a856.png" alt="백준2056" /></p>
+
+<p>테스트 케이스를 이해하고자 그림을 그려봤다.</p>
+
+<p>그리다가 느낀게 앞에서 부터 차근차근 계산하면 되겠다라는 생각이들었다.</p>
+
+<p><br /><br /></p>
+
+<h3 id="알고리즘">알고리즘</h3>
+
+<ol>
+  <li>
+    <p>각 작업이 끝나는 시간을 계산해 놓기 위한 배열을 할당한다.</p>
+  </li>
+  <li>
+    <p>차례대로 자신이 걸리는 시간을 계산해서 저장한다.</p>
+
+    <p>⇒자신의 선행 관계 목록 중 가장 큰 값 뒤에 자신의 값을 더한 시간이 자신이 걸리는 시간!</p>
+  </li>
+  <li>
+    <p>배열에서 가장 큰 값이 답!</p>
+  </li>
+</ol>
+
+<p><br /><br /></p>
+
+<h3 id="정답코드">정답코드</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">n</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">time</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">n</span> <span class="c1">#각 작업이 끝나는 시간을 계산해 놓기 위한 배열
+</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">()))</span>
+    <span class="n">alen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>
+        <span class="n">time</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">big</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">alen</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">time</span><span class="p">[</span><span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">big</span><span class="p">:</span>
+                <span class="n">big</span> <span class="o">=</span> <span class="n">time</span><span class="p">[</span><span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">time</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">big</span> <span class="o">+</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">time</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<p>🚀Reference: <a href="https://www.acmicpc.net/problem/2056" target="_blank">백준 2056번: 작업</a></p>
+
+<p><br /></p>
+
+:ET

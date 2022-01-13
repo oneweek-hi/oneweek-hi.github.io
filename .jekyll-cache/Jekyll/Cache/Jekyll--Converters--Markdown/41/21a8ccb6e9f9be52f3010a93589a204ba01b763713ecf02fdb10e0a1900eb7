@@ -1,0 +1,116 @@
+I"�<p><br />오늘의 문제는 🚀 <a href="https://www.acmicpc.net/problem/1952" target="_blank">백준 1592번: 달팽이2</a>이다.</p>
+
+<p>분명 브론즈..인데 왜 때문에 못풀겠지..? 내 실력 눈감아😂</p>
+
+<p><br /><br /><br /></p>
+
+<h3 id="테스트케이스-이해하기">테스트케이스 이해하기</h3>
+
+<p><img src="https://user-images.githubusercontent.com/42812764/148773711-1d4000f2-7569-4d0f-8f58-d380042886a5.png" alt="image" /></p>
+
+<p>입력으로 숫자가 주어지면 n * m 크기의 어레이를 꺽어가면서 돌때 몇번이 꺽이는지 찾는 것이다.</p>
+
+<p><br /><br /></p>
+
+<h3 id="1차-시도--실패">1차 시도 : 실패</h3>
+
+<p>이 시도는…마지막 한줄이 꺽이지 않고 쭉 이어질때 해결하지 못한다.. 허흑</p>
+
+<ul>
+  <li>알고리즘</li>
+</ul>
+
+<ol>
+  <li>이차원 배열 모서리를 다 돈다.</li>
+  <li>그 다음에 차례대로 안으로 돌아간다.</li>
+  <li>방향이 바뀔 때 마다 count의 갯수를 올려준다.</li>
+</ol>
+
+<p><br /></p>
+
+<ul>
+  <li>문제점
+    <ul>
+      <li>마지막에 한 줄이 쭈르륵 남아있을 경우 판단하지 못함.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /><br /></p>
+
+<h3 id="2차-시도--성공">2차 시도 : 성공</h3>
+
+<p>접근법이 떠오르지 않아 해당 부분만 인강을 수강했다….!</p>
+
+<p>생각은 비슷했지만 훨씬 간단한 방법으로 활용해서 문제를 푸셨다.</p>
+
+<p>mode 아이디어를 활용해서 나름의 방식을 풀렸더니 통과되었다!</p>
+
+<p><br /></p>
+
+<ul>
+  <li>알고리즘</li>
+</ul>
+
+<ol>
+  <li>
+    <p>dx, dy를 꺽이는 방향 순서대로 셋팅한다.</p>
+  </li>
+  <li>
+    <p>모든 칸을 다 채울동안 while문을 돈다.</p>
+  </li>
+  <li>
+    <p>mode의 값을 더한 x,y가 범위안에 있다면 다음 칸이 0인지 확인한 후,</p>
+
+    <p>​		0이 아니면, mode를 업데이트해주고, result 값을 추가 한다.</p>
+
+    <p>​		그 후 x,y 값을 업데이트 하고 count 증가!</p>
+  </li>
+  <li>
+    <p>범위 안에 없다면 mode를 업데이트해주고, result 값을 추가 한다.</p>
+  </li>
+</ol>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<h3 id="정답코드">정답코드</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">n</span><span class="p">,</span><span class="n">m</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">m</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+<span class="n">dx</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#우, 하, 좌, 상
+</span><span class="n">dy</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">y</span> <span class="o">=</span> <span class="n">mode</span> <span class="o">=</span> <span class="n">count</span> <span class="o">=</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
+
+
+<span class="k">while</span> <span class="n">count</span> <span class="o">!=</span> <span class="n">n</span><span class="o">*</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+    <span class="k">if</span> <span class="o">-</span><span class="mi">1</span><span class="o">&lt;</span> <span class="n">x</span><span class="o">+</span><span class="n">dx</span><span class="p">[</span><span class="n">mode</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">n</span> <span class="ow">and</span> <span class="o">-</span><span class="mi">1</span><span class="o">&lt;</span> <span class="n">y</span><span class="o">+</span><span class="n">dy</span><span class="p">[</span><span class="n">mode</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">m</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">x</span><span class="o">+</span><span class="n">dx</span><span class="p">[</span><span class="n">mode</span><span class="p">]][</span><span class="n">y</span><span class="o">+</span><span class="n">dy</span><span class="p">[</span><span class="n">mode</span><span class="p">]]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">mode</span> <span class="o">=</span> <span class="p">(</span><span class="n">mode</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">4</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="n">x</span> <span class="o">+=</span> <span class="n">dx</span><span class="p">[</span><span class="n">mode</span><span class="p">]</span>
+        <span class="n">y</span> <span class="o">+=</span> <span class="n">dy</span><span class="p">[</span><span class="n">mode</span><span class="p">]</span>
+        <span class="n">arr</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">mode</span> <span class="o">=</span> <span class="p">(</span><span class="n">mode</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="mi">4</span>
+        <span class="n">result</span> <span class="o">+=</span><span class="mi">1</span>
+
+
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<p>🚀Reference:  <a href="https://www.acmicpc.net/problem/1952" target="_blank">백준 1592번 - 달팽이2</a></p>
+
+<p><br /></p>
+
+:ET

@@ -1,0 +1,105 @@
+I"7!<p><br />오늘의 예비문제2는 🚀 <a href="https://www.acmicpc.net/problem/13913" target="_blank">백준 13913 숨바꼭질4 </a>이다.</p>
+
+<p>숨바꼭질과 거의 유사하지만, 자신이 거쳐온 과정도 같이 프린트 해줘야 한다!</p>
+
+<p><br /><br /></p>
+
+<h3 id="테스트케이스-이해하기">테스트케이스 이해하기</h3>
+
+<p>수빈이랑 동생이랑 숨바꼭질을 해서, 수빈이가 찾으러 가는 것이다.</p>
+
+<p>이동할 수 있는 방법은 +1, -1, *2 방법이 있고 이동할때 마다 1초씩 흐른다.</p>
+
+<p>가장 빠른 시간과 함께 거쳐온 위치를 프린트 해주면 된다!</p>
+
+<p><br /><br /></p>
+
+<h3 id="알고리즘">알고리즘</h3>
+
+<p>기본 알고리즘은 숨바꼭질이랑 비슷하다.</p>
+
+<ol>
+  <li>
+    <p>방문했는지 확인하는 check, 각각 거리가 얼마인지 저장하는 dist, 어디서왔는지 저장하는 place를 선언한다.</p>
+  </li>
+  <li>
+    <p>deque를 이용해서 수빈이의 위치를 넣고, while문을 시작한다.</p>
+  </li>
+  <li>
+    <p>세가지 경우로 나눠서 범위를 확인하고, +1, -1, *2 씩 이동했을 경우를 생각해서 check랑 dist를 채운다</p>
+  </li>
+  <li>
+    <p>place[nxt]를 넣어줌으로서 어디에서 왔는지를 저장해준다.</p>
+  </li>
+  <li>
+    <p>현재 위치가 수빈이 동생 위치이면 프린트 하고 break 해서 탈출!</p>
+  </li>
+  <li>
+    <p>place를 거꾸로 타면서 result에 넣어주고 for문을 반대로 돌려서 프린트 해준다.</p>
+
+    <p><br /></p>
+
+    <p><br /></p>
+  </li>
+</ol>
+
+<h3 id="정답코드">정답코드</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+<span class="nb">max</span><span class="o">=</span><span class="mi">200000</span>
+<span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span><span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
+<span class="n">check</span><span class="o">=</span><span class="p">[</span><span class="bp">False</span><span class="p">]</span><span class="o">*</span><span class="nb">max</span>
+<span class="n">dist</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">max</span>
+<span class="n">place</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">max</span>
+<span class="n">result</span><span class="o">=</span><span class="p">[]</span>
+
+<span class="n">q</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
+<span class="n">q</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">check</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="k">while</span> <span class="n">q</span><span class="p">:</span>
+    <span class="n">now</span> <span class="o">=</span> <span class="n">q</span><span class="p">.</span><span class="n">popleft</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">now</span> <span class="o">==</span> <span class="n">b</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">dist</span><span class="p">[</span><span class="n">b</span><span class="p">])</span>
+        <span class="k">break</span>
+    <span class="k">for</span> <span class="n">nxt</span> <span class="ow">in</span> <span class="p">[</span><span class="n">now</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">now</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">now</span><span class="o">*</span><span class="mi">2</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="o">-</span><span class="mi">1</span><span class="o">&lt;</span><span class="n">nxt</span><span class="o">&lt;</span><span class="nb">max</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">check</span><span class="p">[</span><span class="n">nxt</span><span class="p">]:</span>
+            <span class="n">q</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">nxt</span><span class="p">)</span>
+            <span class="n">check</span><span class="p">[</span><span class="n">nxt</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="n">dist</span><span class="p">[</span><span class="n">nxt</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist</span><span class="p">[</span><span class="n">now</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span>
+            <span class="n">place</span><span class="p">[</span><span class="n">nxt</span><span class="p">]</span> <span class="o">=</span> <span class="n">now</span> <span class="c1">#nxt칸에 지금 위치 넣어주기. 여기를 거쳐서 왔다!
+</span>
+
+<span class="c1">#place를 거꾸로 거슬러 올가면서 result에 append하기            
+</span><span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">next</span> <span class="o">=</span> <span class="n">b</span>
+<span class="k">while</span> <span class="nb">next</span> <span class="o">!=</span><span class="n">a</span><span class="p">:</span>
+    <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">place</span><span class="p">[</span><span class="nb">next</span><span class="p">])</span>
+    <span class="nb">next</span> <span class="o">=</span> <span class="n">place</span><span class="p">[</span><span class="nb">next</span><span class="p">]</span>
+
+<span class="c1">#for문 반대로 돌리기
+</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="s">' '</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="인상깊은-재귀함수">인상깊은 재귀함수</h3>
+
+<p>이런 방식으로 재귀함수를 사용해서 place를 프린트 할 수도 있다. 우왕!✨</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">printtool</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">!=</span> <span class="n">m</span><span class="p">:</span>
+        <span class="n">printtool</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">place</span><span class="p">[</span><span class="n">m</span><span class="p">])</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">" "</span><span class="p">)</span>
+    
+<span class="n">printtool</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<p>🚀Reference:   <a href="https://www.acmicpc.net/problem/13913" target="_blank">백준 13913 숨바꼭질4 </a> <br /></p>
+
+:ET

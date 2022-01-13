@@ -1,0 +1,128 @@
+I"j#<p><br />드디어 오늘의 문제는 🚀 <a href="https://www.acmicpc.net/problem/13539" target="_blank">백준 13539 숨바꼭질3 </a>이다.</p>
+
+<p>이것도 숨바꼭질과 비슷하지만, *2가 순간이동이기 때문에 시간이 걸리지 않는다…!</p>
+
+<p><br /><br /></p>
+
+<h3 id="테스트케이스-이해하기">테스트케이스 이해하기</h3>
+
+<p><img src="https://user-images.githubusercontent.com/42812764/149274119-a68fd796-5946-4ee0-b497-25ea8a4a5837.png" alt="image" /></p>
+
+<p>이것도 수빈이랑 동생이랑 숨바꼭질을 해서, 수빈이가 찾으러 가는 것이다.</p>
+
+<p>이동할 수 있는 방법은 +1, -1, *2 방법이 있고,</p>
+
+<p>+1, -1 씩 이동할때는 1씩 시간이 걸리지만, *2 은 순간이동이여서 시간이 걸리지 않는다.</p>
+
+<p>그럼 가장 시간이 짧게 걸리는 방법은 무엇인가?</p>
+
+<p><br /><br /></p>
+
+<h3 id="알고리즘">알고리즘</h3>
+
+<p>기본 알고리즘은 숨바꼭질이랑 비슷하다.</p>
+
+<ol>
+  <li>
+    <p>방문했는지 확인하는 check, 각각 거리가 얼마인지 저장하는 dist를 선언한다.</p>
+  </li>
+  <li>
+    <p>deque를 이용해서 수빈이의 위치를 넣고, while문을 시작한다.</p>
+  </li>
+  <li>
+    <p>세가지 경우로 나눠서 범위를 확인을 해야 한다.</p>
+
+    <ol>
+      <li>*2 만큼 이동했을 경우는 시간이 걸리지 않기 때문에 q.appendleft를 사용해서 앞에다가 넣어준다.</li>
+      <li>+1, -1, 만큼 이동했을 경우는 그대로 q.append를 사용한다.</li>
+      <li>*2는 dist를 이전과 를 똑같이 넣어주고 +1, -1 은 dist를 1씩 늘려서 채운다.</li>
+      <li>방문했기 때문에 check도 1로 업데이트 하준다.</li>
+    </ol>
+  </li>
+  <li>
+    <p>현재 위치가 수빈이 동생 위치이면 프린트 하고 break 해서 탈출!</p>
+
+    <p><br /></p>
+  </li>
+</ol>
+
+<ul>
+  <li>
+    <p>*2의 경우만 appedleft를 사용하는 이유</p>
+
+    <p>BFS는 자신으로 부터 같은 거리에 떨어져 있는 곳을 다 방문해야 다음 거리에 떨어져 있는 정점에 방문한다.</p>
+
+    <p>그래서 주로 최단 거리를 구할때 주로 사용하는데, 이때 무조건 가중치가 같아야 한다.</p>
+
+    <p>하지만 가중치가 딱 두개일 경우,</p>
+
+    <ul>
+      <li>queue를 두개를 사용해서 BFS로 풀기</li>
+      <li>덱을 사용해서 BFS로 풀기가 있다!</li>
+    </ul>
+
+    <p>queue를 두개 사용할 경우는 가중치에 따라 각각 큐에 넣어주면 되고,</p>
+
+    <p>덱을 사용할 경우에는 앞에다가 넣어주면 큐를 두개 사용한 것과 같다!</p>
+
+    <p>그래서 *2는 가중치가 0이기 때문에 이동을 했음에도 이전단계와 같은 레벨이기 때문에 앞에다가 넣어준다.</p>
+
+    <p><br /></p>
+  </li>
+  <li>
+    <p>해결하지 못한 점</p>
+
+    <p>*2 케이스를 맨 뒤에 넣으면 백준을 통과하지 못한다..!</p>
+
+    <p>이유가 뭘까? 이것 때문에 한시간을 날렸는데 아직 해결하지 못하였다…ㅠㅠ</p>
+  </li>
+</ul>
+
+<p><br /><br /></p>
+
+<h3 id="정답코드">정답코드</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+<span class="nb">max</span><span class="o">=</span><span class="mi">200000</span>
+<span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span><span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
+<span class="n">check</span><span class="o">=</span><span class="p">[</span><span class="bp">False</span><span class="p">]</span><span class="o">*</span><span class="nb">max</span>
+<span class="n">dist</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">max</span>
+
+<span class="n">q</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
+<span class="n">q</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">check</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+
+<span class="k">while</span> <span class="n">q</span><span class="p">:</span>
+    <span class="n">now</span> <span class="o">=</span> <span class="n">q</span><span class="p">.</span><span class="n">popleft</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">now</span> <span class="o">==</span><span class="n">b</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">dist</span><span class="p">[</span><span class="n">b</span><span class="p">])</span>
+
+    <span class="k">if</span> <span class="o">-</span><span class="mi">1</span><span class="o">&lt;</span> <span class="n">now</span><span class="o">*</span><span class="mi">2</span> <span class="o">&lt;</span> <span class="nb">max</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">check</span><span class="p">[</span><span class="n">now</span> <span class="o">*</span> <span class="mi">2</span><span class="p">]:</span>
+            <span class="n">q</span><span class="p">.</span><span class="n">appendleft</span><span class="p">(</span><span class="n">now</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#앞으로 넣어준다.
+</span>            <span class="n">check</span><span class="p">[</span><span class="n">now</span> <span class="o">*</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="n">dist</span><span class="p">[</span><span class="n">now</span> <span class="o">*</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist</span><span class="p">[</span><span class="n">now</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="o">-</span><span class="mi">1</span><span class="o">&lt;</span> <span class="n">now</span> <span class="o">+</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">max</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">check</span><span class="p">[</span><span class="n">now</span><span class="o">+</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">q</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">now</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">check</span><span class="p">[</span><span class="n">now</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="n">dist</span><span class="p">[</span><span class="n">now</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist</span><span class="p">[</span><span class="n">now</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span>
+
+    <span class="k">if</span> <span class="o">-</span><span class="mi">1</span><span class="o">&lt;</span> <span class="n">now</span><span class="o">-</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">max</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">check</span><span class="p">[</span><span class="n">now</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span>
+            <span class="n">q</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">now</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">check</span><span class="p">[</span><span class="n">now</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="n">dist</span><span class="p">[</span><span class="n">now</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">dist</span><span class="p">[</span><span class="n">now</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<p>🚀Reference:   <a href="https://www.acmicpc.net/problem/13539" target="_blank">백준 13539 - 숨바꼭질3 </a> <br /></p>
+
+:ET

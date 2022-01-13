@@ -1,0 +1,661 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[Algorithm] 백준_1261번: 알고스팟 - oneweek-hi</title>
+<meta name="description" content="🥳 오늘의 알고리즘 문제">
+
+
+  <meta name="author" content="Han Juhui">
+  
+  <meta property="article:author" content="Han Juhui">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="oneweek-hi">
+<meta property="og:title" content="[Algorithm] 백준_1261번: 알고스팟">
+<meta property="og:url" content="http://localhost:4000/%EB%B0%B1%EC%A4%80/Algorithm-%EB%B0%B1%EC%A4%80-1261-%EC%95%8C%EA%B3%A0%EC%8A%A4%ED%8C%9F/">
+
+
+  <meta property="og:description" content="🥳 오늘의 알고리즘 문제">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2022-01-13T00:00:00+00:00">
+
+
+
+  <meta property="article:modified_time" content="2022-01-13T16:07:00+00:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/%EB%B0%B1%EC%A4%80/Algorithm-%EB%B0%B1%EC%A4%80-1261-%EC%95%8C%EA%B3%A0%EC%8A%A4%ED%8C%9F/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Han Juhui",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="oneweek-hi Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          oneweek-hi
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">Category</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/">About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/juhui.JPG" alt="Han Juhui" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Han Juhui</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>하나 둘 씩 정리해봅시다✨</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Pohang, Republic of Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:21600763@handong.edu" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/oneweek-hi" rel="nofollow noopener noreferrer me"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[Algorithm] 백준_1261번: 알고스팟">
+    <meta itemprop="description" content="🥳 오늘의 알고리즘 문제">
+    <meta itemprop="datePublished" content="2022-01-13T00:00:00+00:00">
+    <meta itemprop="dateModified" content="2022-01-13T16:07:00+00:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/%EB%B0%B1%EC%A4%80/Algorithm-%EB%B0%B1%EC%A4%80-1261-%EC%95%8C%EA%B3%A0%EC%8A%A4%ED%8C%9F/" class="u-url" itemprop="url">[Algorithm] 백준_1261번: 알고스팟
+</a>
+          </h1>
+           
+          <!-- <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 분 소요
+
+</p> -->
+          <p class="page__date">
+            <i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:
+            <time datetime="2022-01-13T00:00:00+00:00"
+              >January 13, 2022</time
+            >
+          </p>
+          
+          
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-cog"></i> Contents</h4></header>
+              <ul class="toc__menu"><li><a href="#테스트케이스-이해하기">테스트케이스 이해하기</a></li><li><a href="#알고리즘">알고리즘</a></li><li><a href="#정답코드">정답코드</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p><br />오늘의 추가 문제는 🚀 <a href="https://www.acmicpc.net/problem/1261" target="_blank">백준 1261 알고스팟</a>이다.</p>
+
+<p>아 굉장한 실수로 인해.. 시간을 많이 잡아먹고 결국 혼자서 해결을 못하고 구글미트로 SOS을 요청했다.</p>
+
+<p><br /><br /></p>
+
+<h3 id="테스트케이스-이해하기">테스트케이스 이해하기</h3>
+
+<p><img src="https://user-images.githubusercontent.com/42812764/149277625-aa4a6253-00a2-439e-a968-7d7f1da2cf68.png" alt="image" /></p>
+
+<p>최소한 벽을 부셔서 m,n에 도착해야 한다.</p>
+
+<p>p.s 조금 이상한게 가로 세로를 반대로 입력해준다… 헷갈리니 조심하시길!</p>
+
+<p><br /><br /></p>
+
+<h3 id="알고리즘">알고리즘</h3>
+
+<p>몰랐는데 deque에 튜플이랑 리스트가 들어간다고 하더라.. 난 안되길래 q두개씩 선언해서 풀었는데ㅎ..😂</p>
+
+<ol>
+  <li>check를 -1로 기본값을 넣어 선언하고, 시작 위치를 0으로 설정해준다.</li>
+  <li>x와 y를 넣어줄 queue를 선언하고 0,0을 넣어준다</li>
+  <li>4방향으로 돌면서 앞으로 나갈 경우가 범위에 들어있고, 이미 방문하지 않을 경우만 방문한다.</li>
+  <li>벽이 없으면 check값을 추가해주지 않고 그대로 넣어주고, 벽이 있으면 +1을 해준다.</li>
+  <li>벽이 없으면 appendleft, 벽이 있으면 append해준다!</li>
+  <li>마지막 위치를 프린트 해주면 해결!</li>
+</ol>
+
+<p><br /></p>
+
+<details>
+  <summary>SOS친 부분 🙈🙉🙊</summary>
+
+  <p>결국 혼자 해결하지 못하고 SOS를 친 부분은 1번이었다.</p>
+
+  <p>check 초기화를 0으로 해놓고 방문하지 않을 경우는 0로 확인했기 때문에,</p>
+
+  <p>벽이 없는 경우를 구분 하지 못했던 것이다…!!!!!!</p>
+
+  <p>그래서 초기값을 -1로 설정하고 시작하는 부분만 0으로 설정값을 넣주고,</p>
+
+  <p>방문하지 않은 곳을 확인할 때는 check == -1 로 확인했다.</p>
+
+  <p>바로 문제없이 실행이 되었다.</p>
+
+  <p>이번에 얻은 교훈: 초기화 잘하자. 제대로 하자. 제발!</p>
+
+  <p>도움을 주신 오앵무님께 감사를 표한다 :)</p>
+</details>
+
+<p><br /><br /></p>
+
+<h3 id="정답코드">정답코드</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+
+<span class="n">n</span><span class="p">,</span><span class="n">m</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span><span class="nb">list</span><span class="p">(</span><span class="nb">input</span><span class="p">())))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">)]</span>
+<span class="n">check</span> <span class="o">=</span><span class="p">[[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">n</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">)]</span>
+<span class="n">check</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
+
+<span class="n">dx</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">dy</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
+<span class="n">x</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">y</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="n">x</span><span class="p">:</span>
+    <span class="n">nowX</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">popleft</span><span class="p">()</span>
+    <span class="n">nowY</span> <span class="o">=</span> <span class="n">y</span><span class="p">.</span><span class="n">popleft</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+        <span class="n">nxtX</span> <span class="o">=</span> <span class="n">nowX</span> <span class="o">+</span> <span class="n">dx</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">nxtY</span> <span class="o">=</span> <span class="n">nowY</span> <span class="o">+</span> <span class="n">dy</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">if</span> <span class="o">-</span><span class="mi">1</span><span class="o">&lt;</span> <span class="n">nxtX</span> <span class="o">&lt;</span> <span class="n">m</span> <span class="ow">and</span> <span class="o">-</span><span class="mi">1</span><span class="o">&lt;</span> <span class="n">nxtY</span><span class="o">&lt;</span><span class="n">n</span> <span class="ow">and</span> <span class="n">check</span><span class="p">[</span><span class="n">nxtX</span><span class="p">][</span><span class="n">nxtY</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">nxtX</span><span class="p">][</span><span class="n">nxtY</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="c1">#벽이 없을때
+</span>                <span class="n">check</span><span class="p">[</span><span class="n">nxtX</span><span class="p">][</span><span class="n">nxtY</span><span class="p">]</span> <span class="o">=</span> <span class="n">check</span><span class="p">[</span><span class="n">nowX</span><span class="p">][</span><span class="n">nowY</span><span class="p">]</span>
+                <span class="n">x</span><span class="p">.</span><span class="n">appendleft</span><span class="p">(</span><span class="n">nxtX</span><span class="p">)</span>
+                <span class="n">y</span><span class="p">.</span><span class="n">appendleft</span><span class="p">(</span><span class="n">nxtY</span><span class="p">)</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">check</span><span class="p">[</span><span class="n">nxtX</span><span class="p">][</span><span class="n">nxtY</span><span class="p">]</span> <span class="o">=</span> <span class="n">check</span><span class="p">[</span><span class="n">nowX</span><span class="p">][</span><span class="n">nowY</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span>
+                <span class="n">x</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">nxtX</span><span class="p">)</span>
+                <span class="n">y</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">nxtY</span><span class="p">)</span>
+
+
+<span class="k">print</span><span class="p">(</span><span class="n">check</span><span class="p">[</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<p>🚀Reference:   <a href="https://www.acmicpc.net/problem/1261" target="_blank">백준 1261 알고스팟</a><br /></p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#%EB%B0%B1%EC%A4%80" class="page__taxonomy-item p-category" rel="tag">백준</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2022-01-13">January 13, 2022</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BAlgorithm%5D+%EB%B0%B1%EC%A4%80_1261%EB%B2%88%3A+%EC%95%8C%EA%B3%A0%EC%8A%A4%ED%8C%9F%20http%3A%2F%2Flocalhost%3A4000%2F%25EB%25B0%25B1%25EC%25A4%2580%2FAlgorithm-%25EB%25B0%25B1%25EC%25A4%2580-1261-%25EC%2595%258C%25EA%25B3%25A0%25EC%258A%25A4%25ED%258C%259F%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F%25EB%25B0%25B1%25EC%25A4%2580%2FAlgorithm-%25EB%25B0%25B1%25EC%25A4%2580-1261-%25EC%2595%258C%25EA%25B3%25A0%25EC%258A%25A4%25ED%258C%259F%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F%25EB%25B0%25B1%25EC%25A4%2580%2FAlgorithm-%25EB%25B0%25B1%25EC%25A4%2580-1261-%25EC%2595%258C%25EA%25B3%25A0%25EC%258A%25A4%25ED%258C%259F%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/%EB%B0%B1%EC%A4%80/Algorithm-%EB%B0%B1%EC%A4%80-10026-%EC%A0%81%EB%A1%9D%EC%83%89%EC%95%BD/" class="pagination--pager" title="[Algorithm] 백준_10026번: 적록색약
+">이전</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">다음</a>
+    
+  </nav>
+
+      
+
+    </div>
+
+    
+  </article>
+
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/%EB%B0%B1%EC%A4%80/Algorithm-%EB%B0%B1%EC%A4%80-10026-%EC%A0%81%EB%A1%9D%EC%83%89%EC%95%BD/" rel="permalink">[Algorithm] 백준_10026번: 적록색약
+</a>
+      
+    </h2>
+    <!-- 
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 분 소요
+
+</p>
+     -->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> January 13 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">🥳 오늘의 알고리즘 문제
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/%EB%B0%B1%EC%A4%80/Algorithm-%EB%B0%B1%EC%A4%80-14226-%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98/" rel="permalink">[Algorithm] 백준_14226번: 이모티콘
+</a>
+      
+    </h2>
+    <!-- 
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 분 소요
+
+</p>
+     -->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> January 12 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">🥳 오늘의 알고리즘 문제
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/%EB%B0%B1%EC%A4%80/Algorithm-%EB%B0%B1%EC%A4%80-13913-%EC%88%A8%EB%B0%94%EA%BC%AD%EC%A7%884/" rel="permalink">[Algorithm] 백준_13913번: 숨바꼭질4
+</a>
+      
+    </h2>
+    <!-- 
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 분 소요
+
+</p>
+     -->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> January 12 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">🥳 오늘의 알고리즘 문제
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/%EB%B0%B1%EC%A4%80/Algorithm-%EB%B0%B1%EC%A4%80-13549-%EC%88%A8%EB%B0%94%EA%BC%AD%EC%A7%883/" rel="permalink">[Algorithm] 백준_13349번: 숨바꼭질3
+</a>
+      
+    </h2>
+    <!-- 
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 분 소요
+
+</p>
+     -->
+    
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> January 12 2022</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">🥳 오늘의 알고리즘 문제
+</p>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  
+  
+  
+  
+</div>
+<script src="https://utteranc.es/client.js"
+repo="oneweek-hi/oneweek-hi.github.io"
+issue-term="pathname"
+theme="github-light"
+crossorigin="anonymous"
+async>
+</script>
+
+    </div>
+
+
+    
+
+
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com/oneweek-hi" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 Han Juhui. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

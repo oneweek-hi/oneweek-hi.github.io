@@ -1,0 +1,208 @@
+I"`R<p><br />오늘의 문제는 🚀 <a href="https://www.acmicpc.net/problem/16924" target="_blank">백준_16924번: 십자가 찾기</a>이다.</p>
+
+<p>..주말을 즐기다가 오늘안에 해결하지 못했다. 껄껄</p>
+
+<p>그리고 문제 자체가 어려운 것도 한몫 한다…😂</p>
+
+<p><br /><br /><br /></p>
+
+<h3 id="테스트케이스-이해하기">테스트케이스 이해하기</h3>
+
+<p><img src="https://user-images.githubusercontent.com/42812764/148649601-44c6f6c2-d9fe-49d4-bef6-079d5330465b.png" alt="image" /></p>
+
+<p>위의 그림 처럼 *로 만들어진 십자가를 주어진 Input에서 찾는 문제이다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/42812764/148649630-431fff0f-7abf-44c2-9c6c-e5d1315727dc.png" alt="image" /></p>
+
+<p>결과값은 input에서 총 3개의 십자가를 찾을 수 있다는 것이다!</p>
+
+<ul>
+  <li>(3,4)에 길이가 1인 십자가</li>
+  <li>(3,5)에 길이가 2인 십자가</li>
+  <li>(3,5)에 길이가 1인 십자가</li>
+</ul>
+
+<p><br /></p>
+
+<p>위와 같이 십자가를 찾아내서 총 갯수와 좌표, 길이를 차례대로 프린트 해주면 된다.</p>
+
+<p><br /><br /></p>
+
+<h3 id="1차-시도--실패">1차 시도 : 실패</h3>
+
+<p>오늘 시도는 예외점이 많아서… 다른 방법을 찾아야할 것 같다.</p>
+
+<ul>
+  <li>알고리즘</li>
+</ul>
+
+<ol>
+  <li>이중포문을 돌려서 각각의 값에 접근 (가장 자리 1을 제외)</li>
+  <li>*일 경우, for을 이용해서 왼쪽, 오른쪽, 위에, 아래를 확인해서 다 *일 경우 result에 i,j,길이 추가</li>
+  <li>길이를 늘려서 다시 확인해서 맞을 경우, result에 추가.</li>
+  <li>result의 길이가 0이면 -1을 아니면, 내용물을 프린트</li>
+</ol>
+
+<p><br /></p>
+
+<ul>
+  <li>문제점
+    <ul>
+      <li>백준에 나와있는 예제 3번의 경우를 처리하지 못함.</li>
+      <li>십자가 중간에 구멍이 나있을 경우 처리 못함</li>
+      <li>시간 복잡도가 높음</li>
+      <li>총체적난국…!</li>
+      <li>다른 방법을 생각해야하는데 다 돌아다니면서 체크하는거 밖에 안떠오른다 흑흑😂</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /><br /></p>
+
+<ul>
+  <li>
+    <p>시도 코드</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#입력
+</span><span class="n">n</span><span class="p">,</span><span class="n">m</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
+<span class="n">arr</span><span class="o">=</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="nb">list</span><span class="p">(</span><span class="nb">input</span><span class="p">())))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+  
+<span class="n">result</span><span class="o">=</span><span class="p">[]</span>
+<span class="nb">max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">)</span>
+<span class="n">dx</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">dy</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+  
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="s">"*"</span><span class="p">:</span>
+            <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="k">while</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="nb">max</span><span class="p">:</span>
+                <span class="n">circle</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+                    <span class="n">i</span> <span class="o">+=</span> <span class="n">dx</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">count</span> <span class="c1">#길이 늘어나는 것 체크
+</span>                    <span class="n">j</span> <span class="o">+=</span> <span class="n">dy</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">count</span>
+                    <span class="k">if</span> <span class="o">-</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="ow">and</span> <span class="o">-</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">m</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="s">"*"</span><span class="p">:</span>
+                            <span class="n">circle</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="n">i</span> <span class="o">-=</span> <span class="n">dx</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">count</span>
+                    <span class="n">j</span> <span class="o">-=</span> <span class="n">dy</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">count</span>
+  
+                <span class="k">if</span> <span class="n">circle</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span> <span class="c1">#십자가가 될 경우만 넣어 줌
+</span>                    <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">([</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">count</span><span class="p">])</span>
+                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+  
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+  
+  
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="2차-시도--성공">2차 시도 : 성공</h3>
+
+<p>아무리 생각해도 다 확인해보는거 말고는 생각이나지 않는다.</p>
+
+<p>그래서 그냥 그대로 하고, 빈어레이를 만들어서 똑같이 만든후 확인하는 방식으르 더했다!</p>
+
+<p>그랬더니 성공!</p>
+
+<ul>
+  <li>알고리즘</li>
+</ul>
+
+<ol>
+  <li>이중포문을 돌려서 각각의 값에 접근 (가장 자리 1을 제외)</li>
+  <li>*일 경우, for을 이용해서 왼쪽, 오른쪽, 위에, 아래를 확인해서 다 *일 경우 result에 i,j,길이 추가</li>
+  <li>길이를 늘려서 다시 확인해서 맞을 경우, result에 추가. 안맞을 경우 break로 탈출</li>
+  <li>result의 내용물 꺼내서 input과 똑같이 만들어서 check 어레이를 만듦.</li>
+  <li>input과 check를 비교</li>
+  <li>같으면 결과값 출력, 아니면 -1출력.</li>
+</ol>
+
+<p><br /><br /></p>
+
+<h3 id="정답-코드">정답 코드</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">n</span><span class="p">,</span><span class="n">m</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
+<span class="n">arr</span><span class="o">=</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="nb">list</span><span class="p">(</span><span class="nb">input</span><span class="p">())))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+<span class="n">check</span><span class="o">=</span><span class="p">[[</span><span class="s">"."</span><span class="p">]</span><span class="o">*</span><span class="n">m</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+<span class="n">result</span><span class="o">=</span><span class="p">[]</span>
+<span class="nb">max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">)</span>
+<span class="n">dx</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">dy</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+
+<span class="c1">#십자가 찾기
+</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="s">"*"</span><span class="p">:</span>
+            <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="k">while</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="nb">max</span><span class="p">:</span>
+                <span class="n">circle</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+                    <span class="n">i</span> <span class="o">+=</span> <span class="n">dx</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">count</span>
+                    <span class="n">j</span> <span class="o">+=</span> <span class="n">dy</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">count</span>
+                    <span class="k">if</span> <span class="o">-</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="ow">and</span> <span class="o">-</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">m</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="s">"*"</span><span class="p">:</span>
+                            <span class="n">circle</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="n">i</span> <span class="o">-=</span> <span class="n">dx</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">count</span>
+                    <span class="n">j</span> <span class="o">-=</span> <span class="n">dy</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">count</span>
+
+                <span class="k">if</span> <span class="n">circle</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+                    <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">([</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">count</span><span class="p">])</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">break</span>
+                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+
+
+<span class="c1">#결과값으로 check 어레이 만들기
+</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)):</span>
+    <span class="n">x</span> <span class="o">=</span><span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span>
+    <span class="n">y</span> <span class="o">=</span><span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span><span class="mi">1</span>
+    <span class="n">check</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="s">"*"</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+            <span class="n">x</span> <span class="o">+=</span> <span class="n">dx</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">j</span>
+            <span class="n">y</span> <span class="o">+=</span> <span class="n">dy</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">j</span>
+            <span class="n">check</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="s">"*"</span>
+            <span class="n">x</span> <span class="o">-=</span> <span class="n">dx</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">j</span>
+            <span class="n">y</span> <span class="o">-=</span> <span class="n">dy</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">j</span>
+
+
+<span class="c1">#두 어레이가 같은지 확인하기
+</span><span class="n">printResult</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="n">check</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]:</span>
+            <span class="n">printResult</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="k">break</span>
+
+
+
+<span class="c1">#결과 프린트 하기
+</span><span class="k">if</span> <span class="n">printResult</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+    <span class="c1"># 정렬은 선택
+</span>    <span class="n">result</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">' '</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">])))</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<p>🚀Reference:   <a href="https://www.acmicpc.net/problem/16924" target="_blank">백준_16924번 - 십자가 찾기</a></p>
+
+<p><br /></p>
+
+:ET
