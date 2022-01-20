@@ -47,7 +47,7 @@ var store = [{
         "url": "/project/Project-Nuxt.js-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/",
         "teaser": null
       },{
-        "title": "[Algorithm] 백준_2056번:작업",
+        "title": "[Algorithm] 백준_2056번: 작업",
         "excerpt":"3일 전부터 하루에 한 문제씩 남자친구랑 같이 풀고 있다! 오늘의 문제는 🚀백준 2056번: 작업이다. 테스트케이스 그림그리고 이해하는데 오래 걸려서, 이럴려면 되려나 하고 코드 썼는데 한번에 풀렸다~! 만세~! 테스트케이스 이해하기 테스트 케이스를 이해하고자 그림을 그려봤다. 그리다가 느낀게 앞에서 부터 차근차근 계산하면 되겠다라는 생각이들었다. 알고리즘 각 작업이 끝나는 시간을 계산해 놓기 위한...","categories": ["백준"],
         "tags": [],
         "url": "/%EB%B0%B1%EC%A4%80/Algorithm-%EB%B0%B1%EC%A4%80-2056-%EC%9E%91%EC%97%85/",
@@ -107,6 +107,12 @@ var store = [{
         "url": "/%EB%B0%B1%EC%A4%80/Algorithm-%EB%B0%B1%EC%A4%80-14226-%EC%9D%B4%EB%AA%A8%ED%8B%B0%EC%BD%98/",
         "teaser": null
       },{
+        "title": "[SQL] SQL 정리",
+        "excerpt":"🚀 프로그래머스 SQL 문제풀기🚀 SELECT 어린 동물 찾기 SELECT ANIMAL_ID, NAME FROM ANIMAL_INS WHERE INTAKE_CONDITION != \"Aged\" SELECT ANIMAL_ID, NAME FROM ANIMAL_INS WHERE not INTAKE_CONDITION = \"Aged\" 여러기준으로 정렬하기 SELECT ANIMAL_ID, NAME, DATETIME FROM ANIMAL_INS ORDER by NAME , DATETIME DESC 상위 n개 레코드 -- 코드를 입력하세요 SELECT NAME FROM...","categories": ["SQL"],
+        "tags": [],
+        "url": "/sql/Algorithm-SQL-%EA%B3%B5%EB%B6%80%ED%95%98%EA%B8%B0/",
+        "teaser": null
+      },{
         "title": "[Algorithm] 백준_10026번: 적록색약",
         "excerpt":"오늘의 문제는 🚀 백준 10026 적록색약이다. 이제 BFS 돌리는건 자신 있는데 여러 군데서 돌리는건 어떻게 하는게 가장 최선일지 모르겠다. 이번엔 그냥 풀기만 하자라는 마음으로 이중 포문을 돌려버렸는데 통과가 되어버렸다! 테스트케이스 이해하기 적록색약을 가진 사람은 R과 G를 구분하지 못한다. 그래서 위의 입력 값을 봤을때 각각 4개의 구역, 3개의 구역 이렇게 있다고 판단한다....","categories": ["백준"],
         "tags": [],
@@ -117,5 +123,35 @@ var store = [{
         "excerpt":"오늘의 추가 문제는 🚀 백준 1261 알고스팟이다. 아 굉장한 실수로 인해.. 시간을 많이 잡아먹고 결국 혼자서 해결을 못하고 구글미트로 SOS을 요청했다. 테스트케이스 이해하기 최소한 벽을 부셔서 m,n에 도착해야 한다. p.s 조금 이상한게 가로 세로를 반대로 입력해준다… 헷갈리니 조심하시길! 알고리즘 몰랐는데 deque에 튜플이랑 리스트가 들어간다고 하더라.. 난 안되길래 q두개씩 선언해서 풀었는데ㅎ..😂 check를...","categories": ["백준"],
         "tags": [],
         "url": "/%EB%B0%B1%EC%A4%80/Algorithm-%EB%B0%B1%EC%A4%80-1261-%EC%95%8C%EA%B3%A0%EC%8A%A4%ED%8C%9F/",
+        "teaser": null
+      },{
+        "title": "[Algorithm] 백준_11653번: 소인수분해",
+        "excerpt":"오늘의 문제는 🚀 백준 11653 소인수분해이다. 내일 시험이 있어서 약간 쉬운 문제를 선택하게 되었다! 처음에 보자마자 에라토스테네스의 체로 풀어야 하나 했지만, 더 복잡해 질거 같아서 while문으로 해결했다! 테스트케이스 이해하기 예제처럼, 우리가 수학시간에 구했던 소인수분해를 프린트 해주면 된다! 알고리즘 i를 2로 두고 input값보다 작을 동안 계속 while문을 돌도록 한다. i가 n을 나머지...","categories": ["백준"],
+        "tags": [],
+        "url": "/%EB%B0%B1%EC%A4%80/Algorithm-%EB%B0%B1%EC%A4%80-11653-%EC%86%8C%EC%9D%B8%EC%88%98-%EB%B6%84%ED%95%B4/",
+        "teaser": null
+      },{
+        "title": "[Algorithm] 백준_1072번: 게임",
+        "excerpt":"오늘의 문제는 🚀 백준 1072 게임이다. input이 십억이다… 이럴때는 무조건 이분 탐색으로 풀어야한다. 테스트케이스 이해하기 형택이는 앞으로 절대 지지 않는다. 그럴 경우 승률이 바뀌는 최소 값을 찾는게 이번 문제!! 알고리즘 start와 end 값을 설정해준다. 현재 승률을 구하고 99와 같거나 크면 -1를 프린트 해주고 끝낸다. (이미 틀린 경우가 있기 때문에 승률이 100이...","categories": ["백준"],
+        "tags": [],
+        "url": "/%EB%B0%B1%EC%A4%80/Algorithm-%EB%B0%B1%EC%A4%80-1072-%EA%B2%8C%EC%9E%84/",
+        "teaser": null
+      },{
+        "title": "[Algorithm] 백준_2143번: 두 배열의 합",
+        "excerpt":"오늘의 문제는 🚀 백준 2143 두 배열의 합이다. 어렵다. 컴비네이션을 풀어야 하는줄 알고 끙끙 풀다가 시간이 너무 많이 지나버려서.. 😂 다른 분의 풀이를 참고했다. 테스트케이스 이해하기 부배열이 배열 속의 일정 범위 연속된 값이라는 것을 제대로 이해하지 못했다.. 그냥 부분집합이라고 생각했는데.. 문제를 똑바로 읽자! 그래서 연속된 일정 범위의 각각의 배열들의 부배열의 합이 첫번째로...","categories": ["백준"],
+        "tags": [],
+        "url": "/%EB%B0%B1%EC%A4%80/Algorithm-%EB%B0%B1%EC%A4%80-2143-%EB%91%90-%EB%B0%B0%EC%97%B4%EC%9D%98-%ED%95%A9/",
+        "teaser": null
+      },{
+        "title": "[Algorithm] 백준_2023번: 신기한 소수",
+        "excerpt":"오늘의 문제는 🚀 백준 2023 신기한 소수이다. 아찔한 문제.. 실력이 차근차근 쌓여서 뚝딱뚝딱 풀어버렸으면 좋겠다ㅎ 테스트케이스 이해하기 N자리 숫자 중에서 앞에서 부터 하나씩 숫자를 끊어봐도 다 소수인 숫자를 찾는 문제이다! 1차 시도 : 실패 is_prime만 쓰니깐 ⇒ 시간초과 에라토스테네스의 체 ⇒ 메모리 초과 그 뒤로도 한참을 고민했지만.. 방법을 찾지못해서 SOS를 쳤다. n=int(input())...","categories": ["백준"],
+        "tags": [],
+        "url": "/%EB%B0%B1%EC%A4%80/Algorithm-%EB%B0%B1%EC%A4%80-2023-%EC%8B%A0%EA%B8%B0%ED%95%9C%EC%86%8C%EC%88%98/",
+        "teaser": null
+      },{
+        "title": "[Algorithm] 백준_16936번: 나3곱2",
+        "excerpt":"오늘의 문제는 🚀 백준 16936 나3곱2이다. 오 어려운데 라고 생각했는데 테스트 케이스를 잘 보니깐 금방 풀렸다. 룰루 테스트케이스 이해하기 곱하기2를 하거나 3으로 나누어 질 경우에 3으로 나눈값들이 뒤섞여서 input으로 입력된다. 그러면 그 숫자들의 순서들을 찾으면 된다! 틀린 경우는 존재 하지 않는다. 그래서 주어진 테스트 케이스만 저렇게 찬찬히 봤는데, 마지막에 오는 숫자만...","categories": ["백준"],
+        "tags": [],
+        "url": "/%EB%B0%B1%EC%A4%80/Algorithm-%EB%B0%B1%EC%A4%80-16936_%EB%82%983%EA%B3%B12/",
         "teaser": null
       }]

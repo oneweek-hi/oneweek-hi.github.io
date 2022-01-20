@@ -1,0 +1,273 @@
+I"EP<p>🚀 <a href="https://programmers.co.kr/learn/challenges" target="_blank">프로그래머스 SQL 문제풀기</a>🚀</p>
+
+<p><br /></p>
+
+<h3 id="select">SELECT</h3>
+
+<hr />
+
+<h4 id="어린-동물-찾기">어린 동물 찾기</h4>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">ANIMAL_ID</span><span class="p">,</span> <span class="n">NAME</span>
+<span class="k">FROM</span> <span class="n">ANIMAL_INS</span>
+<span class="k">WHERE</span> <span class="n">INTAKE_CONDITION</span> <span class="o">!=</span> <span class="nv">"Aged"</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">ANIMAL_ID</span><span class="p">,</span> <span class="n">NAME</span>
+<span class="k">FROM</span> <span class="n">ANIMAL_INS</span>
+<span class="k">WHERE</span> <span class="k">not</span> <span class="n">INTAKE_CONDITION</span> <span class="o">=</span> <span class="nv">"Aged"</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="여러기준으로-정렬하기">여러기준으로 정렬하기</h4>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">ANIMAL_ID</span><span class="p">,</span> <span class="n">NAME</span><span class="p">,</span> <span class="nb">DATETIME</span>
+<span class="k">FROM</span> <span class="n">ANIMAL_INS</span>
+<span class="k">ORDER</span> <span class="k">by</span> <span class="n">NAME</span> <span class="p">,</span> <span class="nb">DATETIME</span> <span class="k">DESC</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="상위-n개-레코드">상위 n개 레코드</h4>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 코드를 입력하세요</span>
+<span class="k">SELECT</span> <span class="n">NAME</span> 
+<span class="k">FROM</span> <span class="n">ANIMAL_INS</span> 
+<span class="k">ORDER</span> <span class="k">by</span> <span class="nb">DATETIME</span> 
+<span class="k">LIMIT</span> <span class="mi">1</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<h3 id="sum-max-min">SUM, MAX, MIN</h3>
+
+<h4 id="최솟값-구하기">최솟값 구하기</h4>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 코드를 입력하세요</span>
+<span class="k">SELECT</span> <span class="nb">DATETIME</span> <span class="k">as</span> <span class="nv">"시간"</span>
+<span class="k">FROM</span> <span class="n">ANIMAL_INS</span>
+<span class="k">ORDER</span> <span class="k">by</span> <span class="nb">DATETIME</span>
+<span class="k">LIMIT</span> <span class="mi">1</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="동물의-수-구하기">동물의 수 구하기</h4>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 코드를 입력하세요</span>
+<span class="k">SELECT</span> <span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">ANIMAL_INS</span>
+
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="중복-제거하기">중복 제거하기</h4>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 코드를 입력하세요</span>
+<span class="k">SELECT</span> <span class="k">count</span><span class="p">(</span><span class="k">DISTINCT</span> <span class="n">NAME</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">ANIMAL_INS</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<h3 id="group-by">GROUP BY</h3>
+
+<h4 id="고양이와-개는-몇-마리-있을까">고양이와 개는 몇 마리 있을까</h4>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 코드를 입력하세요</span>
+<span class="k">SELECT</span> <span class="n">ANIMAL_TYPE</span> <span class="p">,</span> <span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">as</span> <span class="nv">"count"</span>
+<span class="k">FROM</span> <span class="n">ANIMAL_INS</span>
+<span class="k">order</span> <span class="k">by</span> <span class="n">ANIMAL_TYPE</span>
+<span class="k">GROUP</span> <span class="k">by</span> <span class="n">ANIMAL_TYPE</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="동명-동물-수-찾기">동명 동물 수 찾기</h4>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 코드를 입력하세요</span>
+<span class="k">SELECT</span> <span class="n">NAME</span><span class="p">,</span> <span class="k">count</span><span class="p">(</span><span class="n">NAME</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">ANIMAL_INS</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">NAME</span>
+<span class="k">HAVING</span> <span class="k">count</span><span class="p">(</span><span class="n">NAME</span><span class="p">)</span><span class="o">&gt;</span> <span class="mi">1</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">NAME</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="입양-시각-구하기1">입양 시각 구하기(1)</h4>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">HOUR</span><span class="p">(</span><span class="nb">DATETIME</span><span class="p">),</span> <span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">ANIMAL_OUTS</span>
+<span class="k">WHERE</span> <span class="n">HOUR</span><span class="p">(</span><span class="nb">DATETIME</span><span class="p">)</span> <span class="k">BETWEEN</span> <span class="mi">9</span> <span class="k">and</span> <span class="mi">19</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">HOUR</span><span class="p">(</span><span class="nb">DATETIME</span><span class="p">)</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">HOUR</span><span class="p">(</span><span class="nb">DATETIME</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="입양-시각-구하기2">입양 시각 구하기(2)</h4>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 코드를 입력하세요</span>
+ 
+<span class="k">WITH</span> <span class="k">RECURSIVE</span> <span class="n">COUNTER</span><span class="p">(</span><span class="n">HOUR</span><span class="p">)</span> <span class="k">AS</span> <span class="p">(</span> 
+    <span class="k">SELECT</span> <span class="mi">0</span> <span class="o">#</span><span class="err">비반복문</span>
+    <span class="k">UNION</span> <span class="k">ALL</span> <span class="o">#</span><span class="k">UNION</span> <span class="err">구문</span>
+    <span class="k">SELECT</span> <span class="n">HOUR</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">FROM</span> <span class="n">COUNTER</span> <span class="k">WHERE</span> <span class="n">HOUR</span> <span class="o">&lt;</span> <span class="mi">23</span> <span class="o">#</span><span class="k">recursive</span> <span class="err">구문</span> 
+<span class="p">)</span>
+
+
+<span class="k">SELECT</span> <span class="n">HOUR</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">A</span><span class="p">.</span><span class="n">ANIMAL_ID</span><span class="p">)</span> <span class="k">AS</span> <span class="k">COUNT</span>
+<span class="k">FROM</span> <span class="n">COUNTER</span> <span class="k">as</span> <span class="k">C</span> <span class="k">LEFT</span> <span class="k">JOIN</span> 
+        <span class="n">ANIMAL_OUTS</span> <span class="n">A</span> <span class="k">ON</span> <span class="k">C</span><span class="p">.</span><span class="n">HOUR</span> <span class="o">=</span> <span class="n">HOUR</span><span class="p">(</span><span class="n">A</span><span class="p">.</span><span class="nb">DATETIME</span><span class="p">)</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">HOUR</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">HOUR</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<h3 id="is-null">IS NULL</h3>
+
+<h4 id="이름이-없는-동물의-아이디">이름이 없는 동물의 아이디</h4>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 코드를 입력하세요</span>
+<span class="k">SELECT</span> <span class="n">ANIMAL_ID</span>
+<span class="k">FROM</span> <span class="n">ANIMAL_INS</span>
+<span class="k">WHERE</span> <span class="n">name</span> <span class="k">is</span> <span class="k">null</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="이름이-있는-동물의-아이디">이름이 있는 동물의 아이디</h4>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 코드를 입력하세요</span>
+<span class="k">SELECT</span> <span class="n">ANIMAL_ID</span>
+<span class="k">FROM</span> <span class="n">ANIMAL_INS</span>
+<span class="k">WHERE</span> <span class="n">NAME</span> <span class="k">is</span> <span class="k">not</span> <span class="k">null</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 코드를 입력하세요</span>
+<span class="k">SELECT</span> <span class="n">ANIMAL_ID</span>
+<span class="k">FROM</span> <span class="n">ANIMAL_INS</span>
+<span class="k">WHERE</span> <span class="n">NAME</span> <span class="o">!=</span> <span class="k">null</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="null-처리하기">NULL 처리하기</h4>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 코드를 입력하세요</span>
+<span class="k">SELECT</span> <span class="n">ANIMAL_TYPE</span><span class="p">,(</span><span class="k">CASE</span> <span class="k">WHEN</span> <span class="n">NAME</span> <span class="k">is</span> <span class="k">null</span> <span class="k">then</span> <span class="nv">"No name"</span> <span class="k">else</span> <span class="n">NAME</span> <span class="k">END</span><span class="p">)</span> <span class="k">as</span> <span class="n">NAME</span><span class="p">,</span> <span class="n">SEX_UPON_INTAKE</span>
+<span class="k">FROM</span> <span class="n">ANIMAL_INS</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">ANIMAL_ID</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<h3 id="join">JOIN</h3>
+
+<h4 id="없어진-기록-찾기">없어진 기록 찾기</h4>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 코드를 입력하세요</span>
+<span class="k">SELECT</span> <span class="n">B</span><span class="p">.</span><span class="n">ANIMAL_ID</span><span class="p">,</span> <span class="n">B</span><span class="p">.</span><span class="n">NAME</span>
+<span class="k">FROM</span>  <span class="n">ANIMAL_INS</span> <span class="n">A</span> <span class="k">Right</span> <span class="k">JOIN</span> <span class="n">ANIMAL_OUTS</span> <span class="n">B</span> <span class="k">ON</span> <span class="n">A</span><span class="p">.</span><span class="n">ANIMAL_ID</span> <span class="o">=</span> <span class="n">B</span><span class="p">.</span><span class="n">ANIMAL_ID</span>
+<span class="k">WHERE</span> <span class="n">A</span><span class="p">.</span><span class="n">ANIMAL_ID</span> <span class="k">is</span> <span class="k">null</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">ANIMAL_ID</span>
+</code></pre></div></div>
+
+<h4 id="있었는데요-없었습니다"><br />있었는데요 없었습니다</h4>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 코드를 입력하세요</span>
+<span class="k">SELECT</span> <span class="n">A</span><span class="p">.</span><span class="n">ANIMAL_ID</span><span class="p">,</span> <span class="n">A</span><span class="p">.</span><span class="n">NAME</span>
+<span class="k">FROM</span> <span class="n">ANIMAL_INS</span> <span class="n">A</span> <span class="k">right</span> <span class="k">Join</span> <span class="n">ANIMAL_OUTS</span> <span class="n">B</span> <span class="k">on</span> <span class="n">A</span><span class="p">.</span><span class="n">ANIMAL_ID</span> <span class="o">=</span> <span class="n">B</span><span class="p">.</span><span class="n">ANIMAL_ID</span>
+<span class="k">WHERE</span> <span class="n">A</span><span class="p">.</span><span class="nb">DATETIME</span> <span class="o">&gt;</span> <span class="n">B</span><span class="p">.</span><span class="nb">DATETIME</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">A</span><span class="p">.</span><span class="nb">DATETIME</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="오랜기간-보호한-동물1">오랜기간 보호한 동물(1)</h4>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 코드를 입력하세요</span>
+<span class="k">SELECT</span> <span class="n">A</span><span class="p">.</span><span class="n">NAME</span><span class="p">,</span> <span class="n">A</span><span class="p">.</span><span class="nb">DATETIME</span>
+<span class="k">FROM</span> <span class="n">ANIMAL_INS</span> <span class="n">A</span> <span class="k">left</span> <span class="k">Join</span> <span class="n">ANIMAL_OUTS</span> <span class="n">B</span> <span class="k">on</span> <span class="n">A</span><span class="p">.</span><span class="n">ANIMAL_ID</span> <span class="o">=</span> <span class="n">B</span><span class="p">.</span><span class="n">ANIMAL_ID</span>
+<span class="k">WHERE</span> <span class="n">B</span><span class="p">.</span><span class="n">ANIMAL_ID</span> <span class="k">is</span> <span class="k">null</span> <span class="c1">-- 입양이 못가야 하니깐 테이블에서 비워져야 한다. </span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">A</span><span class="p">.</span><span class="nb">DATETIME</span>
+<span class="k">limit</span> <span class="mi">3</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="보호소에서-중성화한-동물">보호소에서 중성화한 동물</h4>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 코드를 입력하세요</span>
+<span class="k">SELECT</span> <span class="n">B</span><span class="p">.</span><span class="n">ANIMAL_ID</span><span class="p">,</span> <span class="n">B</span><span class="p">.</span><span class="n">ANIMAL_TYPE</span><span class="p">,</span><span class="n">B</span><span class="p">.</span><span class="n">NAME</span>
+<span class="k">FROM</span> <span class="n">ANIMAL_INS</span> <span class="n">A</span> <span class="k">inner</span> <span class="k">JOIN</span> <span class="n">ANIMAL_OUTS</span> <span class="n">B</span> <span class="k">on</span> <span class="n">A</span><span class="p">.</span><span class="n">ANIMAL_ID</span> <span class="o">=</span> <span class="n">B</span><span class="p">.</span><span class="n">ANIMAL_ID</span>
+<span class="k">WHERE</span> <span class="p">(</span><span class="n">A</span><span class="p">.</span><span class="n">SEX_UPON_INTAKE</span> <span class="k">like</span> <span class="nv">"Intact%"</span><span class="p">)</span> 
+<span class="k">and</span> <span class="p">((</span><span class="n">B</span><span class="p">.</span><span class="n">SEX_UPON_OUTCOME</span> <span class="k">like</span> <span class="nv">"Neutered%"</span><span class="p">)</span> <span class="k">or</span> <span class="p">(</span> <span class="n">B</span><span class="p">.</span><span class="n">SEX_UPON_OUTCOME</span> <span class="k">like</span> <span class="nv">"Spayed%"</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<h3 id="string-date">String, Date</h3>
+
+<h4 id="이름이-el-들어가는-동물-찾기">이름이 el 들어가는 동물 찾기</h4>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 코드를 입력하세요</span>
+<span class="k">SELECT</span> <span class="n">ANIMAL_ID</span><span class="p">,</span> <span class="n">NAME</span>
+<span class="k">FROM</span> <span class="n">ANIMAL_INS</span>
+<span class="k">WHERE</span> <span class="n">NAME</span> <span class="k">like</span> <span class="nv">"%el%"</span> <span class="k">and</span> <span class="n">ANIMAL_TYPE</span> <span class="k">like</span> <span class="nv">"DOG"</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">NAME</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="중성화-여부-확인하기">중성화 여부 확인하기</h4>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 코드를 입력하세요</span>
+<span class="k">SELECT</span> <span class="n">ANIMAL_ID</span><span class="p">,</span> <span class="n">NAME</span><span class="p">,</span> <span class="p">(</span><span class="k">case</span> <span class="k">when</span> <span class="n">SEX_UPON_INTAKE</span> <span class="k">like</span> <span class="nv">"Intact%"</span> <span class="k">then</span> 
+                     <span class="s1">'X'</span> <span class="k">else</span> <span class="s1">'O'</span> <span class="k">end</span><span class="p">)</span> <span class="k">as</span> <span class="nv">"중성화"</span>
+<span class="k">FROM</span> <span class="n">ANIMAL_INS</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">ANIMAL_ID</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="오랜-기간-보호한-동물2">오랜 기간 보호한 동물(2)</h4>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- 코드를 입력하세요</span>
+<span class="k">SELECT</span> <span class="n">B</span><span class="p">.</span><span class="n">ANIMAL_ID</span><span class="p">,</span> <span class="n">B</span><span class="p">.</span><span class="n">NAME</span>
+<span class="k">FROM</span> <span class="n">ANIMAL_INS</span> <span class="n">A</span> <span class="k">RIGHT</span> <span class="k">JOIN</span> <span class="n">ANIMAL_OUTS</span> <span class="n">B</span> <span class="k">on</span> <span class="n">A</span><span class="p">.</span><span class="n">ANIMAL_ID</span> <span class="o">=</span> <span class="n">B</span><span class="p">.</span><span class="n">ANIMAL_ID</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">B</span><span class="p">.</span><span class="nb">DATETIME</span> <span class="o">-</span> <span class="n">A</span><span class="p">.</span><span class="nb">DATETIME</span> <span class="k">DESC</span>
+<span class="k">LIMIT</span> <span class="mi">2</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="date로-형변환">Date로 형변환</h4>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">ANIMAL_ID</span><span class="p">,</span> <span class="n">NAME</span><span class="p">,</span> <span class="n">date_format</span><span class="p">(</span><span class="nb">DATETIME</span><span class="p">,</span> <span class="s1">'%Y-%m-%d'</span><span class="p">)</span> <span class="k">as</span> <span class="nv">"날짜"</span> <span class="o">#</span><span class="n">ymd</span><span class="err">가</span> <span class="err">대문자랑</span> <span class="err">소문자랑</span> <span class="err">결과값이</span> <span class="err">다름</span><span class="p">.</span>
+<span class="k">FROM</span> <span class="n">ANIMAL_INS</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<p><br /></p>
+
+:ET

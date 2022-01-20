@@ -1,0 +1,75 @@
+I"d<p><br />오늘의  문제는 🚀 <a href="https://www.acmicpc.net/problem/1072" target="_blank">백준 1072 게임</a>이다.</p>
+
+<p>input이 십억이다… 이럴때는 무조건 이분 탐색으로 풀어야한다.</p>
+
+<p><br /><br /></p>
+
+<h3 id="테스트케이스-이해하기">테스트케이스 이해하기</h3>
+
+<p><img src="https://user-images.githubusercontent.com/42812764/150289437-8072b458-8621-4206-a88b-652c07f947f4.png" alt="image" /></p>
+
+<p>형택이는 앞으로 절대 지지 않는다. 그럴 경우 승률이 바뀌는 최소 값을 찾는게 이번 문제!!</p>
+
+<p><br /><br /></p>
+
+<h3 id="알고리즘">알고리즘</h3>
+
+<ol>
+  <li>
+    <p>start와 end 값을 설정해준다.</p>
+  </li>
+  <li>
+    <p>현재 승률을 구하고 99와 같거나 크면 -1를 프린트 해주고 끝낸다.</p>
+
+    <p>(이미 틀린 경우가 있기 때문에 승률이 100이 될 수는 없음)</p>
+  </li>
+  <li>
+    <p>start가 end보다 커지기 전까지 while문을 돈다.</p>
+  </li>
+  <li>
+    <p>start와 end의 중간값을 더해서 계산한 승률을 현재 승률과 비교해서 크면 end의 범위를 줄이고 작으면 start의 범위를 줄인다.</p>
+  </li>
+  <li>
+    <p>while문을 탈출하고 시작점을 프린트해준다.</p>
+  </li>
+</ol>
+
+<p>p.s 진짜 왕창 틀렸다.. 파이썬은 곱하기,나누기 하는 순서에 따라서 결과값이 달라진다. int()도 함부로 쓰면 안된다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/42812764/150290637-d8c4a9e0-5213-4dad-9166-a44e1668c5a8.png" alt="image" /></p>
+
+<p><br /><br /></p>
+
+<h3 id="정답코드">정답코드</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">all</span><span class="p">,</span> <span class="n">win</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">end</span> <span class="o">=</span> <span class="mi">1000000000</span>
+<span class="n">firstwinRate</span><span class="o">=</span> <span class="p">(</span><span class="n">win</span><span class="o">*</span><span class="mi">100</span><span class="o">//</span><span class="nb">all</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="mi">99</span> <span class="o">&lt;=</span> <span class="n">firstwinRate</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">start</span> <span class="o">&lt;=</span> <span class="n">end</span><span class="p">):</span>
+        <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">start</span> <span class="o">+</span> <span class="n">end</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span>
+        <span class="c1"># print(start, end, mid)
+</span>        <span class="n">winRate</span> <span class="o">=</span> <span class="p">(</span><span class="n">win</span><span class="o">+</span><span class="n">mid</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="o">//</span><span class="p">(</span><span class="nb">all</span><span class="o">+</span><span class="n">mid</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">winRate</span> <span class="o">&gt;</span> <span class="n">firstwinRate</span><span class="p">:</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">start</span><span class="o">=</span> <span class="n">mid</span> <span class="o">+</span><span class="mi">1</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<p>🚀Reference:  <a href="https://www.acmicpc.net/problem/1072" target="_blank">백준 1072 게임</a><br /></p>
+
+:ET

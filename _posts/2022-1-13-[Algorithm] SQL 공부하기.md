@@ -1,6 +1,6 @@
 ---
 title:  "[SQL] SQL 정리"
-excerpt: "SQL 정리하기"
+excerpt: "⏳프로그래머스 SQL키트 풀기"
 
 categories:
   - SQL
@@ -10,15 +10,18 @@ toc: true
 toc_label: Contents
 toc_icon: cog
 toc_sticky: true
----
 
-<br />
+---
 
 🚀 <a href="https://programmers.co.kr/learn/challenges" target="_blank">프로그래머스 SQL 문제풀기</a>🚀
 
 <br />
 
-어린 동물 찾기 
+### SELECT
+
+----
+
+#### 어린 동물 찾기 
 
 ```sql
 SELECT ANIMAL_ID, NAME
@@ -34,7 +37,7 @@ WHERE not INTAKE_CONDITION = "Aged"
 
 <br />
 
-여러기준으로 정렬하기
+#### 여러기준으로 정렬하기
 
 ```sql
 SELECT ANIMAL_ID, NAME, DATETIME
@@ -43,6 +46,8 @@ ORDER by NAME , DATETIME DESC
 ```
 
 <br />
+
+#### 상위 n개 레코드
 
 ```sql
 -- 코드를 입력하세요
@@ -54,6 +59,16 @@ LIMIT 1
 
 <br />
 
+<br />
+
+
+
+### SUM, MAX, MIN
+
+---
+
+#### 최솟값 구하기
+
 ```sql
 -- 코드를 입력하세요
 SELECT DATETIME as "시간"
@@ -64,6 +79,8 @@ LIMIT 1
 
 <br />
 
+#### 동물의 수 구하기
+
 ```sql
 -- 코드를 입력하세요
 SELECT count(*)
@@ -73,13 +90,25 @@ FROM ANIMAL_INS
 
 <br />
 
+#### 중복 제거하기
+
 ```sql
 -- 코드를 입력하세요
 SELECT count(DISTINCT NAME)
 FROM ANIMAL_INS
 ```
 
+
+
 <br />
+
+<br />
+
+### GROUP BY
+
+---
+
+#### 고양이와 개는 몇 마리 있을까
 
 ```sql
 -- 코드를 입력하세요
@@ -90,6 +119,8 @@ GROUP by ANIMAL_TYPE
 ```
 
 <br />
+
+#### 동명 동물 수 찾기
 
 ```sql
 -- 코드를 입력하세요
@@ -102,6 +133,8 @@ ORDER BY NAME
 
 <br />
 
+#### 입양 시각 구하기(1)
+
 ```sql
 SELECT HOUR(DATETIME), count(*)
 FROM ANIMAL_OUTS
@@ -112,7 +145,7 @@ ORDER BY HOUR(DATETIME)
 
 <br />
 
-입양 시각 구하기(2)
+#### 입양 시각 구하기(2)
 
 ```sql
 -- 코드를 입력하세요
@@ -133,7 +166,13 @@ ORDER BY HOUR
 
 <br />
 
-이름이 없는 동물의 아이디
+<br />
+
+### IS NULL
+
+---
+
+#### 이름이 없는 동물의 아이디
 
 ```sql
 -- 코드를 입력하세요
@@ -142,6 +181,10 @@ FROM ANIMAL_INS
 WHERE name is null
 ```
 
+<br />
+
+#### 이름이 있는 동물의 아이디
+
 ```sql
 -- 코드를 입력하세요
 SELECT ANIMAL_ID
@@ -149,9 +192,16 @@ FROM ANIMAL_INS
 WHERE NAME is not null
 ```
 
+```sql
+-- 코드를 입력하세요
+SELECT ANIMAL_ID
+FROM ANIMAL_INS
+WHERE NAME != null
+```
+
 <br />
 
-
+#### NULL 처리하기
 
 ```sql
 -- 코드를 입력하세요
@@ -160,11 +210,15 @@ FROM ANIMAL_INS
 ORDER BY ANIMAL_ID
 ```
 
+<br />
 
+<br />
 
+### JOIN
 
+---
 
-없어진 기록 찾기
+#### 없어진 기록 찾기
 
 ```sql
 -- 코드를 입력하세요
@@ -176,7 +230,7 @@ ORDER BY ANIMAL_ID
 
 
 
-있었는데요 없었습니다
+#### <br />있었는데요 없었습니다
 
 ```sql
 -- 코드를 입력하세요
@@ -186,9 +240,9 @@ WHERE A.DATETIME > B.DATETIME
 ORDER BY A.DATETIME
 ```
 
+<br />
 
-
-오랜기간 보호한 동물
+#### 오랜기간 보호한 동물(1)
 
 ```sql
 -- 코드를 입력하세요
@@ -199,7 +253,9 @@ ORDER BY A.DATETIME
 limit 3
 ```
 
-보호소에서 중성화한 동물
+<br />
+
+#### 보호소에서 중성화한 동물
 
 ```sql
 -- 코드를 입력하세요
@@ -209,9 +265,15 @@ WHERE (A.SEX_UPON_INTAKE like "Intact%")
 and ((B.SEX_UPON_OUTCOME like "Neutered%") or ( B.SEX_UPON_OUTCOME like "Spayed%"))
 ```
 
+<br />
 
+<br />
 
-이름이 el 들어가는 동물 찾기
+### String, Date
+
+---
+
+#### 이름이 el 들어가는 동물 찾기
 
 ```sql
 -- 코드를 입력하세요
@@ -221,9 +283,9 @@ WHERE NAME like "%el%" and ANIMAL_TYPE like "DOG"
 ORDER BY NAME
 ```
 
+<br />
 
-
-중성화 여부 확인하기
+#### 중성화 여부 확인하기
 
 ```sql
 -- 코드를 입력하세요
@@ -233,9 +295,9 @@ FROM ANIMAL_INS
 ORDER BY ANIMAL_ID
 ```
 
+<br />
 
-
-오랜 기간 보호한 동물
+#### 오랜 기간 보호한 동물(2)
 
 ```sql
 -- 코드를 입력하세요
@@ -245,12 +307,20 @@ ORDER BY B.DATETIME - A.DATETIME DESC
 LIMIT 2
 ```
 
+<br />
 
-
-Date로 형변환
+#### Date로 형변환
 
 ```sql
 SELECT ANIMAL_ID, NAME, date_format(DATETIME, '%Y-%m-%d') as "날짜" #ymd가 대문자랑 소문자랑 결과값이 다름.
 FROM ANIMAL_INS
 ```
+
+<br />
+
+<br />
+
+<br />
+
+<br />
 

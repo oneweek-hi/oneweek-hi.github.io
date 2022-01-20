@@ -1,0 +1,58 @@
+I"�<p><br />오늘의  문제는 🚀 <a href="https://www.acmicpc.net/problem/11653" target="_blank">백준 11653 소인수분해</a>이다.</p>
+
+<p>내일 시험이 있어서 약간 쉬운 문제를 선택하게 되었다!</p>
+
+<p>처음에 보자마자 에라토스테네스의 체로 풀어야 하나 했지만, 더 복잡해 질거 같아서 while문으로 해결했다!</p>
+
+<p><br /><br /></p>
+
+<h3 id="테스트케이스-이해하기">테스트케이스 이해하기</h3>
+
+<p><img src="https://user-images.githubusercontent.com/42812764/149528939-b9037a9b-e0ba-4eec-8688-87658aad27ee.png" alt="image" /></p>
+
+<p>예제처럼, 우리가 수학시간에 구했던 소인수분해를 프린트 해주면 된다!</p>
+
+<p><br /><br /></p>
+
+<h3 id="알고리즘">알고리즘</h3>
+
+<ol>
+  <li>i를 2로 두고 input값보다 작을 동안 계속 while문을 돌도록 한다.</li>
+  <li>i가 n을 나머지 없이 나눌 수 있는 경우, n를 나누어주고 결과값을 append 해준다.</li>
+  <li>그리고 같은 숫자로 계속 다시 나누어 질 수 있기 때문에(ex. 2) continue로 다시 while를 실행시킨다.</li>
+  <li>i가 n을 나머지 없이 나눌 수 없는 경우는 i를 1씩 증가한다.</li>
+  <li>n이 1이 되면 break로 while문을 탈출한다.</li>
+</ol>
+
+<p><br /><br /></p>
+
+<h3 id="정답코드">정답코드</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">n</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">i</span><span class="o">=</span><span class="mi">2</span>
+<span class="n">result</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span>
+    
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+        <span class="k">break</span>
+
+    <span class="k">if</span> <span class="n">n</span><span class="o">%</span><span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="o">//</span><span class="n">i</span>
+        <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">continue</span>
+
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<p>🚀Reference:   <a href="https://www.acmicpc.net/problem/11653" target="_blank">백준 11653 소인수분해</a><br /></p>
+
+:ET
