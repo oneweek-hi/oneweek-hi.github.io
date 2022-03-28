@@ -1,0 +1,89 @@
+I"�<p><br />오늘의  문제는 🚀 <a href="https://www.acmicpc.net/problem/2252" target="_blank">백준 2252 줄세우기</a>이다.</p>
+
+<p>못풀었다. 어렵다. 위상 정렬을 공부하고 풀어보려고 했는데 메모리 초과, 시간초과…😂</p>
+
+<p><br /><br /></p>
+
+<h3 id="테스트케이스-이해하기">테스트케이스 이해하기</h3>
+
+<p><img src="https://user-images.githubusercontent.com/42812764/150543170-80c1db7a-e740-4b91-963a-e17335fcaccc.png" alt="image" /></p>
+
+<p><img src="https://user-images.githubusercontent.com/42812764/150543313-9cd52a42-50c8-44cf-a6b3-22172a95cf9c.png" alt="image" /></p>
+
+<p>주어진 순서들을 고려해서 줄을 세우면 된다. 여러가지 경우가 나온다면 그 중 하나를 프린트 하면 된다.</p>
+
+<p><br /><br /></p>
+
+<h3 id="1차-시도--실패">1차 시도 : 실패</h3>
+
+<p>어려운 문제가 아닌데 다른 방법이 왜 생각이 안나는지 모르겠다.</p>
+
+<p>코테 볼때 이러면 멘붕이 올 것 같다.</p>
+
+<ol>
+  <li>
+    <p>딕셔너리를 선언해서 입력값을 key, value로 저장해준다.</p>
+  </li>
+  <li>
+    <p>큐를 선언해서 아직 방문하지 않았다면 dict의 key 값을 넣어준다.</p>
+  </li>
+  <li>
+    <p>그리고 아직 방문 하지 않았다면, value들을 큐에 넣어준다.</p>
+  </li>
+  <li>
+    <p>그리고 큐에서 나온 것들을 result에 넣어준다.</p>
+  </li>
+  <li>
+    <p>result의 값들을 반대로 빼준다.</p>
+
+    <p>하지만 결과는 실패!</p>
+  </li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="n">n</span><span class="p">,</span><span class="n">m</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">())</span>
+
+<span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span><span class="nb">input</span><span class="p">().</span><span class="n">split</span><span class="p">()))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">)]</span>
+<span class="n">check</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">n</span>
+<span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="nb">dict</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+
+<span class="c1">#딕셔너리 채우기
+</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="nb">dict</span><span class="p">[</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">dict</span><span class="p">[</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]].</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+
+
+<span class="n">q</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
+<span class="c1"># print(dict)
+</span><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="nb">dict</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">check</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="o">!=</span> <span class="n">n</span> <span class="p">:</span>
+        <span class="n">q</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+        <span class="k">while</span> <span class="n">q</span><span class="p">:</span>
+            <span class="n">val</span> <span class="o">=</span> <span class="n">q</span><span class="p">.</span><span class="n">popleft</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">dict</span><span class="p">[</span><span class="n">val</span><span class="p">])):</span>
+                <span class="k">if</span> <span class="n">check</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="n">val</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">check</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="n">val</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+                    <span class="n">q</span><span class="p">.</span><span class="n">appendleft</span><span class="p">(</span><span class="nb">dict</span><span class="p">[</span><span class="n">val</span><span class="p">][</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+
+<span class="c1"># print(result)
+</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="s">" "</span><span class="p">)</span>
+
+
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<p>🚀Reference:  <a href="https://www.acmicpc.net/problem/2252" target="_blank">백준 2252 줄세우기</a><br /></p>
+
+:ET

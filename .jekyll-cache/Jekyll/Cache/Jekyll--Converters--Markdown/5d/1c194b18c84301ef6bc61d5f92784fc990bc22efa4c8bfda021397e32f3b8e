@@ -1,0 +1,105 @@
+I"
+"<p><br />오늘의  문제는 🚀 <a href="https://www.acmicpc.net/problem/1463" target="_blank">백준 1463 - 1로 만들기</a>이다.</p>
+
+<p>DP 알고리즘의 시작! 인강이랑 같이 가보자고~</p>
+
+<p><br /><br /></p>
+
+<h3 id="테스트케이스-이해하기">테스트케이스 이해하기</h3>
+
+<p><img src="https://user-images.githubusercontent.com/42812764/151018331-0729fca4-cd33-43b6-a8dc-64b835388002.png" alt="image" /></p>
+
+<p>위의 세가지 방법을 가장 적게 사용해서 1를 만들수 있는 최솟값을 찾는 것이다!</p>
+
+<p><br /><br /></p>
+
+<h3 id="정답코드">정답코드</h3>
+
+<p>해당 문제는 다이나믹 프로그래밍으로 해결해야 해서, 처음은 top-down 방식으로 문제를 해결했다.</p>
+
+<ul>
+  <li>
+    <p>memo = 최소 연산의 횟수 저장소</p>
+  </li>
+  <li>
+    <p>memo[n] = (memo[n-1] +1) <strong>or</strong> (memo[n//2] +1) <strong>or</strong> (memo[n//3]+1)</p>
+  </li>
+</ul>
+
+<ol>
+  <li>
+    <p>인풋과 memo할 수 있는 배열을 선언한다.</p>
+  </li>
+  <li>
+    <p>재귀함수를 선언한다.</p>
+
+    <ol>
+      <li>1이면 0을 리턴한다</li>
+      <li>이미 memo에 채워진 값이 있다면 리턴한다</li>
+      <li>가능한 세가지 경우(나누기 3, 나누기2, 1빼기) 중에 가장 적은 숫자를 저장한다.</li>
+    </ol>
+  </li>
+  <li>
+    <p>재귀를 프린트 한다.</p>
+  </li>
+</ol>
+
+<p>하지만, 파이썬은 재귀의 깊이가 정해 져있기 때문에 어느 정도를 넘어가면 스택 오버플로우가 발생한다.</p>
+
+<p>예전에 알고있었는데 잊고 있었다가 깜짝놀랬다….ㅋㅋㅋㅠㅠ</p>
+
+<p><img src="https://user-images.githubusercontent.com/42812764/151019885-fae6ae9c-b3e5-48a3-9e54-97add5f42148.png" alt="image" /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#벗뜨 파이썬은 재귀로 문제를 풀면 안된다....
+</span><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">memo</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">go</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">elif</span> <span class="n">memo</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">memo</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">memo</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">go</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">n</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="n">go</span><span class="p">(</span><span class="n">n</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+            <span class="k">if</span> <span class="n">memo</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">temp</span><span class="p">:</span>
+                <span class="n">memo</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp</span>
+        <span class="k">if</span> <span class="n">n</span><span class="o">%</span><span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="n">go</span><span class="p">(</span><span class="n">n</span><span class="o">//</span><span class="mi">3</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+            <span class="k">if</span> <span class="n">memo</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">temp</span><span class="p">:</span>
+                <span class="n">memo</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp</span>
+        <span class="k">return</span> <span class="n">memo</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">go</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>그래서 재귀를 쓰지 않기 위해 bottom-up 반복문으로 바꾸어보았다. 그래서 통과!</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">n</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">memo</span> <span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">memo</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">memo</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">memo</span><span class="p">[</span><span class="n">i</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">memo</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">temp</span><span class="p">:</span>
+            <span class="n">memo</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp</span>
+
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">memo</span><span class="p">[</span><span class="n">i</span> <span class="o">//</span> <span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">memo</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">temp</span><span class="p">:</span>
+            <span class="n">memo</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">memo</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p><br /><br /><br /></p>
+
+<p><br /></p>
+
+<p>🚀Reference:   <a href="https://www.acmicpc.net/problem/1463" target="_blank">백준 1463 - 1로 만들기</a><br /></p>
+
+:ET

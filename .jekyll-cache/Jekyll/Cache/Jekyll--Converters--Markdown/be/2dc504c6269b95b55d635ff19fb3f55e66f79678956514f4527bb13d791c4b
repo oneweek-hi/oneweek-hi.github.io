@@ -1,0 +1,82 @@
+I"b#<p><br />오늘의  문제는 🚀 <a href="https://www.acmicpc.net/problem/15990" target="_blank">백준 15990 - 123 더하기 5</a>이다.</p>
+
+<p>오랜만에 블로그에 글을 쓰네.. 열심히 해라 나자신!</p>
+
+<p><br /><br /></p>
+
+<h3 id="테스트케이스-이해하기">테스트케이스 이해하기</h3>
+
+<p><img src="https://user-images.githubusercontent.com/42812764/151704760-787d2039-7050-46db-bc78-282da87a0e9d.png" alt="image" /></p>
+
+<p>연속해서 같은 수를 쓰지 않고 합으로 각각의 숫자를 표현하는 방법의 수를 찾는 문제이다.</p>
+
+<p><br /></p>
+
+<p><img src="https://user-images.githubusercontent.com/42812764/151704854-86686ef1-67ab-4210-83d7-9c2814eecd80.png" alt="image" /></p>
+
+<p>각 숫자를 연속되지 않는 숫자로 합을 나타낼 때 1,2,3 으로 끝나는 경우의 수를 표로 그려보면 일단 위 처럼 나온다.</p>
+
+<p>초록 사각형 부분은 규칙이 없어서 경우의 수를 써보면 위와 같고,</p>
+
+<p>그 다음 부터는 자기 자신을 더할 수 있도록 자기 자신을 제외한 다른 두숫자 라인에서 자신의 값을 뺀 위치들을 더하면 된다.</p>
+
+<p>예를 들어, 4를 구할때 1로 끝나는 경우의 수를 구하려면 2,3으로 끝나는 3을 구할때 값들을 더하는 것이다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ex</span><span class="p">)</span> <span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span><span class="o">+</span><span class="n">arr</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">3</span><span class="p">])</span> <span class="c1">#2,3으로 끝나는 3들을 값의 합을 더하면 1로 끝나는 4의 합을 구할수 있다.
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<p><img src="https://user-images.githubusercontent.com/42812764/151704803-7d89cff3-365f-4157-8d0e-d33eab73b0be.png" alt="image" /></p>
+
+<p>but…의도치 않게 여기 출력하는 부분에서 상당히 애를 먹었다…</p>
+
+<p><br /><br /></p>
+
+<h3 id="알고리즘">알고리즘</h3>
+
+<ol>
+  <li>위에 그려진 표대로 배열을 초기화 해주고, 규칙이 없는 1~3까지도 미리 세팅한다.</li>
+  <li>4 부터 끝까지 for문을 돌면서 자기 자신을 더할 수 있도록 해당 위치에서 자신의 값을 뺀 위치의 값들끼리 더한다. 그리고 각각 % 1000000009로 나누어 준다.</li>
+  <li>그리고 배열에서 input의 위치의 각각의 값들을 다 더해준다.</li>
+</ol>
+
+<p><br /><br /></p>
+
+<h3 id="정답코드">정답코드</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">n</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">numbers</span><span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">n</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">numbers</span><span class="p">))</span>
+<span class="n">arr</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+
+<span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">%</span> <span class="mi">1000000009</span>
+    <span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="n">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span> <span class="o">%</span> <span class="mi">1000000009</span>
+    <span class="n">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span><span class="o">+</span><span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">i</span><span class="o">-</span><span class="mi">3</span><span class="p">])</span> <span class="o">%</span> <span class="mi">1000000009</span>
+
+
+<span class="c1"># for i in range(n):
+#     print(' '.join(map(str, arr[i])))
+</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">((</span><span class="n">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">+</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">+</span><span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span><span class="o">%</span><span class="mi">1000000009</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><br /><br /><br /></p>
+
+<p><br /></p>
+
+<p>🚀Reference:   <a href="https://www.acmicpc.net/problem/15990" target="_blank">백준 15990 - 123 더하기 5</a><br /></p>
+
+:ET

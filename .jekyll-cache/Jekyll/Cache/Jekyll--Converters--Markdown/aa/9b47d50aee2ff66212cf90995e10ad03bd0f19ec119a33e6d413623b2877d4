@@ -1,0 +1,103 @@
+I"B+<p><br />오늘의  문제는 🚀 <a href="https://programmers.co.kr/learn/courses/30/lessons/43163" target="_blank">프로그래머스 DFS/BFS - 단어변환</a>이다.</p>
+
+<p>같은 문제를 내가 다시 풀어도 다르게 푸는게 신기해서 글을 쓴다.</p>
+
+<p>조금씩 실력이 쌓이고 있는건가 라는 생각이 들어서 기록해둔다 ;)</p>
+
+<p><br /><br /></p>
+
+<h3 id="테스트케이스-이해하기">테스트케이스 이해하기</h3>
+
+<p><img src="https://user-images.githubusercontent.com/42812764/152524549-fb78093a-d5c7-42db-b298-a7bd04aee4bf.png" alt="image" /></p>
+
+<p>begin에서 target으로 알파벳을 하나씩 바꾸어 변환할때 가장 짧은 과정을 찾는 것이다! 만약 없다면 0을 리턴!</p>
+
+<p><br /><br /></p>
+
+<h3 id="알고리즘-ver1">알고리즘 Ver.1</h3>
+
+<ol>
+  <li>일단 두 단어의 각 알파벳이 하나 차이 나는 경우 True를 리턴하는 함수를 만듦.</li>
+  <li>빨리 끝내려고 일단 target이 word에 없으면 0을 바로 리턴하도록 함.</li>
+  <li>일단 포문을 돌면서 하나 차이나는 경우를 큐에 index넣는다.</li>
+  <li>만약 target과 똑같으면 return으로  끝낸다.</li>
+  <li>for문을 돌려서 단어 알파벳이 하나 차이나고, 이전에 방문한적이 없으면 weight 업데이트해주고 큐에 index를 넣는다.</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+
+<span class="k">def</span> <span class="nf">wordchecker</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">compare</span><span class="p">):</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">word</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">compare</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">True</span>
+    <span class="k">return</span> <span class="bp">False</span>
+
+<span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">begin</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">words</span><span class="p">):</span>
+    <span class="n">beginlen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">begin</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+
+    <span class="n">weight</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+
+    <span class="n">q</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">wordchecker</span><span class="p">(</span><span class="n">begin</span><span class="p">,</span> <span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="p">]):</span>
+            <span class="n">weight</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">q</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+    <span class="k">while</span> <span class="n">q</span><span class="p">:</span>
+        <span class="n">new</span> <span class="o">=</span> <span class="n">q</span><span class="p">.</span><span class="n">popleft</span><span class="p">()</span>
+        <span class="n">word</span> <span class="o">=</span> <span class="n">words</span><span class="p">[</span><span class="n">new</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">word</span> <span class="o">==</span> <span class="n">target</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">weight</span><span class="p">[</span><span class="n">new</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)):</span>
+         	  <span class="c1">#알파벳 하나차이 &amp; 이전에 방문X
+</span>            <span class="k">if</span> <span class="n">wordchecker</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="ow">and</span> <span class="n">weight</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span> 
+                <span class="n">weight</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">weight</span><span class="p">[</span><span class="n">new</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="n">q</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="mi">0</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="알고리즘-ver2">알고리즘 Ver.2</h3>
+
+<p>ver.1과 알고리즘이 크게 다를건 없지만, 확실히 코드가 깔끔하다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
+
+<span class="k">def</span> <span class="nf">solution</span><span class="p">(</span><span class="n">begin</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">words</span><span class="p">):</span>
+    <span class="n">wordlen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">begin</span><span class="p">)</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
+    <span class="n">q</span><span class="p">.</span><span class="n">append</span><span class="p">((</span><span class="n">begin</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+    <span class="k">while</span> <span class="n">q</span><span class="p">:</span>
+        <span class="n">word</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">q</span><span class="p">.</span><span class="n">popleft</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)):</span>
+            <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">wordlen</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="n">word</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+                    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="c1">#알파벳 하나차이 &amp; 이전에 방문X
+</span>                <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">target</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">q</span><span class="p">.</span><span class="n">append</span><span class="p">((</span><span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+
+    <span class="k">return</span> <span class="mi">0</span>
+</code></pre></div></div>
+
+<p><br /><br /><br /></p>
+
+<p><br /></p>
+
+<p>그리고 내일 코테 아자아자 화이자~!</p>
+
+<p>🚀Reference:   <a href="https://programmers.co.kr/learn/courses/30/lessons/43163" target="_blank">프로그래머스 DFS/BFS - 단어변환</a><br /></p>
+
+:ET
