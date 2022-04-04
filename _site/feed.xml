@@ -1,4 +1,195 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-03-28T14:59:16+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">oneweek-hi</title><subtitle>하나 둘 씩 정리해봅시다✨</subtitle><author><name>Han Juhui</name></author><entry><title type="html">[Daily] github.io 블로그 다시시작!</title><link href="http://localhost:4000/daily/%EB%8B%A4%EC%8B%9C%EC%8B%9C%EC%9E%91/" rel="alternate" type="text/html" title="[Daily] github.io 블로그 다시시작!" /><published>2022-03-28T00:00:00+00:00</published><updated>2022-03-28T13:06:00+00:00</updated><id>http://localhost:4000/daily/%EB%8B%A4%EC%8B%9C%EC%8B%9C%EC%9E%91</id><content type="html" xml:base="http://localhost:4000/daily/%EB%8B%A4%EC%8B%9C%EC%8B%9C%EC%9E%91/">&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-04T14:43:05+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">oneweek-hi</title><subtitle>하나 둘 씩 정리해봅시다✨</subtitle><author><name>Han Juhui</name></author><entry><title type="html">[SAT ABAP] ABAP의 데이터 형식</title><link href="http://localhost:4000/sap%20abap/abap/" rel="alternate" type="text/html" title="[SAT ABAP] ABAP의 데이터 형식" /><published>2022-04-04T00:00:00+00:00</published><updated>2022-04-04T13:06:00+00:00</updated><id>http://localhost:4000/sap%20abap/abap</id><content type="html" xml:base="http://localhost:4000/sap%20abap/abap/">&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Data type:&lt;/strong&gt; 프로그램에서 사용할 수 있는 데이터 타입을 정의한다&lt;/p&gt;
+
+&lt;p&gt;Data type은 Data variable과 독립적으로 선언하게 되며, Data variable은 Data Type을 참고하여 선언하게 된다.&lt;/p&gt;
+
+&lt;p&gt;프로그램에서 TYPES 구문을 사용하여 Data type을 선언하면 해당 프로그램에서만 사용할 수 있기 때문에, Local Data type 이라고 부른다.&lt;/p&gt;
+
+&lt;p&gt;Local Data type은 이미 정의되어 잇는 ABAP Data를 참고하여 선언하게 된다. Ex: (TYPES dtype TYPE C)&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Data Variable:&lt;/strong&gt; Data type을 참고하여 값을 저장할 수 있는 변수이다.&lt;/p&gt;
+
+&lt;p&gt;Data Type을 참고하여 프로그램에서 사용 할 수 있는 변수이다. 프로그램의 실행 시점에 메모리를 차지하는 데이터 변수를 의미한다. ABAP프로그램에서는 Data variable의 이름을 통해서 값에 접근할 수 있다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-ABAP&quot;&gt;&quot;Data type
+TYPES dtype [TYPE type | LIKE dobj]
+
+&quot;Data variable
+Data var [TYPE type| LIKE dobj]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;data-type의-종류&quot;&gt;Data type의 종류&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Predefined ABAP type&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;Kernel 레벨에서 정의 되어 있는 기본 데이터 타입이다.&lt;/p&gt;
+
+    &lt;p&gt;C, JAVA의 (c, f, l) 타입과 같이 이미 정의 되어 있는 데이터 TYPE 이다.&lt;/p&gt;
+
+    &lt;p&gt;추가로 p, d, t 과 같은 타입들이 존재한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Local Data type in Program&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;ABAP프로그램 내에서 Predefined ABAP Type을 이용하여 Local Type을 생성한다.&lt;/p&gt;
+
+    &lt;p&gt;또한, Predefined ABAP Type을 조합하여 여러 필드가 추가된 Structure타입을 정의하여 사용할 수 있다.&lt;/p&gt;
+
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;ex)  TYPES dtype [TYPE type&lt;/td&gt;
+          &lt;td&gt;LIKE dobj]…&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Global Data Type in ABAP Dictionary&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;모든 ABAP프로그램에서 사용할 수 있는 Global Data Type이다. ABAP Dictionary에서 학습한다.&lt;/p&gt;
+
+    &lt;p&gt;Table(table field), Data type, Data Element, Structure, Table Type&lt;/p&gt;
+
+    &lt;p&gt;ex)  TYPES : types TYPE table.&lt;/p&gt;
+
+    &lt;p&gt;​      DATA: gv_data LIKE table-field …&lt;/p&gt;
+
+    &lt;p&gt;Type Group을 사용하여 TYPE를 그룹화 하여 사용할 수 있다.&lt;/p&gt;
+
+    &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;data-variable-선언&quot;&gt;Data Variable 선언&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Predefned ABAP Type 이용하여 변수 선언&lt;/strong&gt;
+ABAP에서 제공되는 기본 타입을 이용하여 데이터를 선언하는 방식&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code class=&quot;language-ABAP&quot;&gt;Data : gv_num TYPE I,
+	gv_deci TYPE f,
+	gv_date TYPE d,
+	gv_time TYPE t,
+	gv_text1 TYPE c,
+	gv__text(2) TYPE c,
+	gv_longtext TYPE string.
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;프로그램의 Local type을 이용하여 변수 선언&lt;/strong&gt;
+Local 프로그램에서 자주 사용하게 되는 데이터 및 구조를 TYPE으로 선언하여, 프로그램내에서만 ABAP 기본 데이터 타입처럼 사용할 수도 있다.&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code class=&quot;language-ABAP&quot;&gt;TYPES : BEGIN OF t_struct,
+	Col1 type c,
+	Col2 type c,
+	Col3 type c,
+	END OF t_struct. &quot;Local TYPE 선언
+  	
+DATA: gs_struct TYPE T_struct,
+gv_var LIKE gs_struct-col1.
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;ABAP Dictionary의 Type을 이용하여 변수 선언&lt;/p&gt;
+
+    &lt;p&gt;ABAP Dictionary(Table, Structure, Data Element 등)는 모든 프로그램에서 선언한여 사용할 수 있다.&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code class=&quot;language-ABAP&quot;&gt;DATA : gv_carrid TYPE s_carr_id,
+  gv_connid TYPE sflight-carrid,
+  gv_matnr TYPE mara-matnr. &quot;Type in ABAP Dictionary
+&lt;/code&gt;&lt;/pre&gt;
+
+    &lt;p&gt;&lt;br /&gt;  &lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;data-구문&quot;&gt;DATA 구문&lt;/h3&gt;
+
+&lt;p&gt;데이터 변수를 선언할 때 사용하는 구문이다. 변수명은 언더라인(_) 기호를 포함하여 30자까지 가능하다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;TYPE type&lt;/strong&gt;
+데이터 변수의 타입을 정의한다. 위에서 말한 data type의 3가지 종류가 TYEP구문 다음에 올 수 있다.&lt;/p&gt;
+
+    &lt;p&gt;콜론(: ) 기호는 동일한 명령어를 쉼표(,)로 구분하여 마침표(.) 을 만날 때까지 실행하도록 한다. 변수 두개를 한번에 선언할 수 있다.&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code class=&quot;language-ABAP&quot;&gt;DATA: gv_num TYPE i.
+DATA: gv_num1 TYPE I,
+		gv_num2 TYPE I.
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;LIKE num&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;앞에서 생성한 Data Variabled인 gv_num1과 동일한 타입의 변수를 선언 할 때 사용 된다.&lt;/p&gt;
+
+    &lt;p&gt;타입이 있는 모든 데이터 변수(Field, Parameter, Structure, 시스템 변수..)를 사용 할 수 있다.&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code class=&quot;language-ABAP&quot;&gt;Data: gv_num2 LIKE gv_num1.
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;VALUE int&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;모든 데이터 타입은 Initial Value가 존재한다. Data 구문을 사용할 때 Value 옵션을 사용하면 기본 Initial Value 대신에 int로 초기값을 설정한다.&lt;/p&gt;
+
+    &lt;p&gt;VALUE IS INITIAL 구문을 사용하면 Data Type의 Initial Value로 지정된다.(생략해도 된다)&lt;/p&gt;
+
+    &lt;p&gt;Constants변수를 선언할때에는 VALUE옵션은 필수 사항이다.&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code class=&quot;language-ABAP&quot;&gt;DATA: gv_num TYPE i VALUE 123,
+	gv_flag VALUE 'X',
+	gv_val VALUE IS INITIAL,
+	gv_idx LIKE sy_tabix VALUE 45.
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;LENGTH n&lt;/strong&gt;
+필드의 길이를 설정한다. C, N, P, X 타입에만 사용 할 수 있다.&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code class=&quot;language-ABAP&quot;&gt;DATA: gv_num TYPE n LENGTH 2.
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;DECIMALS n&lt;/strong&gt;
+Data Type P에서만 사용 가능하며 1~14 사이의 소수 자리 수를 설정한다.&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code class=&quot;language-ABAP&quot;&gt;DATA: gv_num TYPE P DECIMALS 3.
+&lt;/code&gt;&lt;/pre&gt;
+
+    &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;최종 예시&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-ABAP&quot;&gt;TYPES t_var TYPE C LENGTH 20.
+
+DATA gv_var TYPE t_var.
+gv_var = 'Hellow ABAP'.
+WRITE gv_var.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;🚙 &lt;a href=&quot;https://www.까묵..&quot; target=&quot;_blank&quot;&gt;SAP 책이 뭔지 까먹었다… P24~32을 보고 요약한 글입니다!&lt;/a&gt;&lt;/p&gt;</content><author><name>Han Juhui</name></author><category term="SAP ABAP" /><summary type="html">🚙 SAP ABAP 기초 쌓기!~~~!</summary></entry><entry><title type="html">[Daily] github.io 블로그 다시시작!</title><link href="http://localhost:4000/daily/%EB%8B%A4%EC%8B%9C%EC%8B%9C%EC%9E%91/" rel="alternate" type="text/html" title="[Daily] github.io 블로그 다시시작!" /><published>2022-03-28T00:00:00+00:00</published><updated>2022-03-28T13:06:00+00:00</updated><id>http://localhost:4000/daily/%EB%8B%A4%EC%8B%9C%EC%8B%9C%EC%9E%91</id><content type="html" xml:base="http://localhost:4000/daily/%EB%8B%A4%EC%8B%9C%EC%8B%9C%EC%9E%91/">&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;3월 28일이 되었다.&lt;/p&gt;
 
@@ -758,59 +949,4 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;🚀Reference:  &lt;a href=&quot;https://www.acmicpc.net/problem/1072&quot; target=&quot;_blank&quot;&gt;백준 1072 게임&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name>Han Juhui</name></author><category term="백준" /><summary type="html">🥳 오늘의 알고리즘 문제</summary></entry><entry><title type="html">[Algorithm] 백준_11653번: 소인수분해</title><link href="http://localhost:4000/%EB%B0%B1%EC%A4%80/Algorithm-%EB%B0%B1%EC%A4%80-11653-%EC%86%8C%EC%9D%B8%EC%88%98-%EB%B6%84%ED%95%B4/" rel="alternate" type="text/html" title="[Algorithm] 백준_11653번: 소인수분해" /><published>2022-01-14T00:00:00+00:00</published><updated>2022-01-13T11:02:00+00:00</updated><id>http://localhost:4000/%EB%B0%B1%EC%A4%80/%5BAlgorithm%5D%20%EB%B0%B1%EC%A4%80%2011653%20%EC%86%8C%EC%9D%B8%EC%88%98%20%EB%B6%84%ED%95%B4</id><content type="html" xml:base="http://localhost:4000/%EB%B0%B1%EC%A4%80/Algorithm-%EB%B0%B1%EC%A4%80-11653-%EC%86%8C%EC%9D%B8%EC%88%98-%EB%B6%84%ED%95%B4/">&lt;p&gt;&lt;br /&gt;오늘의  문제는 🚀 &lt;a href=&quot;https://www.acmicpc.net/problem/11653&quot; target=&quot;_blank&quot;&gt;백준 11653 소인수분해&lt;/a&gt;이다.&lt;/p&gt;
-
-&lt;p&gt;내일 시험이 있어서 약간 쉬운 문제를 선택하게 되었다!&lt;/p&gt;
-
-&lt;p&gt;처음에 보자마자 에라토스테네스의 체로 풀어야 하나 했지만, 더 복잡해 질거 같아서 while문으로 해결했다!&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;테스트케이스-이해하기&quot;&gt;테스트케이스 이해하기&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://user-images.githubusercontent.com/42812764/149528939-b9037a9b-e0ba-4eec-8688-87658aad27ee.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;예제처럼, 우리가 수학시간에 구했던 소인수분해를 프린트 해주면 된다!&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;알고리즘&quot;&gt;알고리즘&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;i를 2로 두고 input값보다 작을 동안 계속 while문을 돌도록 한다.&lt;/li&gt;
-  &lt;li&gt;i가 n을 나머지 없이 나눌 수 있는 경우, n를 나누어주고 결과값을 append 해준다.&lt;/li&gt;
-  &lt;li&gt;그리고 같은 숫자로 계속 다시 나누어 질 수 있기 때문에(ex. 2) continue로 다시 while를 실행시킨다.&lt;/li&gt;
-  &lt;li&gt;i가 n을 나머지 없이 나눌 수 없는 경우는 i를 1씩 증가한다.&lt;/li&gt;
-  &lt;li&gt;n이 1이 되면 break로 while문을 탈출한다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;정답코드&quot;&gt;정답코드&lt;/h3&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;
-
-    &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;🚀Reference:   &lt;a href=&quot;https://www.acmicpc.net/problem/11653&quot; target=&quot;_blank&quot;&gt;백준 11653 소인수분해&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name>Han Juhui</name></author><category term="백준" /><summary type="html">🥳 오늘의 알고리즘 문제</summary></entry></feed>
+&lt;p&gt;🚀Reference:  &lt;a href=&quot;https://www.acmicpc.net/problem/1072&quot; target=&quot;_blank&quot;&gt;백준 1072 게임&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;</content><author><name>Han Juhui</name></author><category term="백준" /><summary type="html">🥳 오늘의 알고리즘 문제</summary></entry></feed>

@@ -184,4 +184,10 @@ var store = [{
         "tags": [],
         "url": "/daily/%EB%8B%A4%EC%8B%9C%EC%8B%9C%EC%9E%91/",
         "teaser": null
+      },{
+        "title": "[SAT ABAP] ABAP의 데이터 형식",
+        "excerpt":"Data type: 프로그램에서 사용할 수 있는 데이터 타입을 정의한다 Data type은 Data variable과 독립적으로 선언하게 되며, Data variable은 Data Type을 참고하여 선언하게 된다. 프로그램에서 TYPES 구문을 사용하여 Data type을 선언하면 해당 프로그램에서만 사용할 수 있기 때문에, Local Data type 이라고 부른다. Local Data type은 이미 정의되어 잇는 ABAP Data를 참고하여...","categories": ["SAP ABAP"],
+        "tags": [],
+        "url": "/sap%20abap/abap/",
+        "teaser": null
       }]

@@ -1,0 +1,192 @@
+I"<p><br /></p>
+
+<p><strong>Data type:</strong> 프로그램에서 사용할 수 있는 데이터 타입을 정의한다</p>
+
+<p>Data type은 Data variable과 독립적으로 선언하게 되며, Data variable은 Data Type을 참고하여 선언하게 된다.</p>
+
+<p>프로그램에서 TYPES 구문을 사용하여 Data type을 선언하면 해당 프로그램에서만 사용할 수 있기 때문에, Local Data type 이라고 부른다.</p>
+
+<p>Local Data type은 이미 정의되어 잇는 ABAP Data를 참고하여 선언하게 된다. Ex: (TYPES dtype TYPE C)</p>
+
+<p><br /></p>
+
+<p><strong>Data Variable:</strong> Data type을 참고하여 값을 저장할 수 있는 변수이다.</p>
+
+<p>Data Type을 참고하여 프로그램에서 사용 할 수 있는 변수이다. 프로그램의 실행 시점에 메모리를 차지하는 데이터 변수를 의미한다. ABAP프로그램에서는 Data variable의 이름을 통해서 값에 접근할 수 있다.</p>
+
+<pre><code class="language-ABAP">"Data type
+TYPES dtype [TYPE type | LIKE dobj]
+
+"Data variable
+Data var [TYPE type| LIKE dobj]
+</code></pre>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<h3 id="data-type의-종류">Data type의 종류</h3>
+
+<ul>
+  <li>
+    <p><strong>Predefined ABAP type</strong></p>
+
+    <p>Kernel 레벨에서 정의 되어 있는 기본 데이터 타입이다.</p>
+
+    <p>C, JAVA의 (c, f, l) 타입과 같이 이미 정의 되어 있는 데이터 TYPE 이다.</p>
+
+    <p>추가로 p, d, t 과 같은 타입들이 존재한다.</p>
+  </li>
+  <li>
+    <p><strong>Local Data type in Program</strong></p>
+
+    <p>ABAP프로그램 내에서 Predefined ABAP Type을 이용하여 Local Type을 생성한다.</p>
+
+    <p>또한, Predefined ABAP Type을 조합하여 여러 필드가 추가된 Structure타입을 정의하여 사용할 수 있다.</p>
+
+    <table>
+      <tbody>
+        <tr>
+          <td>ex)  TYPES dtype [TYPE type</td>
+          <td>LIKE dobj]…</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <p><strong>Global Data Type in ABAP Dictionary</strong></p>
+
+    <p>모든 ABAP프로그램에서 사용할 수 있는 Global Data Type이다. ABAP Dictionary에서 학습한다.</p>
+
+    <p>Table(table field), Data type, Data Element, Structure, Table Type</p>
+
+    <p>ex)  TYPES : types TYPE table.</p>
+
+    <p>​      DATA: gv_data LIKE table-field …</p>
+
+    <p>Type Group을 사용하여 TYPE를 그룹화 하여 사용할 수 있다.</p>
+
+    <p><br /></p>
+
+    <p><br /></p>
+  </li>
+</ul>
+
+<h3 id="data-variable-선언">Data Variable 선언</h3>
+
+<ul>
+  <li>
+    <p><strong>Predefned ABAP Type 이용하여 변수 선언</strong>
+ABAP에서 제공되는 기본 타입을 이용하여 데이터를 선언하는 방식</p>
+
+    <pre><code class="language-ABAP">Data : gv_num TYPE I,
+	gv_deci TYPE f,
+	gv_date TYPE d,
+	gv_time TYPE t,
+	gv_text1 TYPE c,
+	gv__text(2) TYPE c,
+	gv_longtext TYPE string.
+</code></pre>
+  </li>
+  <li>
+    <p><strong>프로그램의 Local type을 이용하여 변수 선언</strong>
+Local 프로그램에서 자주 사용하게 되는 데이터 및 구조를 TYPE으로 선언하여, 프로그램내에서만 ABAP 기본 데이터 타입처럼 사용할 수도 있다.</p>
+
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">TYPES</span> <span class="p">:</span> <span class="k">BEGIN</span> <span class="k">OF</span> <span class="n">t_struct</span><span class="p">,</span>
+	<span class="n">Col1</span> <span class="k">type</span> <span class="k">c</span><span class="p">,</span>
+	<span class="n">Col2</span> <span class="k">type</span> <span class="k">c</span><span class="p">,</span>
+	<span class="n">Col3</span> <span class="k">type</span> <span class="k">c</span><span class="p">,</span>
+	<span class="k">END</span> <span class="k">OF</span> <span class="n">t_struct</span><span class="p">.</span> <span class="nv">"Local TYPE 선언
+  	
+DATA: gs_struct TYPE T_struct,
+gv_var LIKE gs_struct-col1.
+</span></code></pre></div>    </div>
+  </li>
+  <li>
+    <p>ABAP Dictionary의 Type을 이용하여 변수 선언</p>
+
+    <p>ABAP Dictionary(Table, Structure, Data Element 등)는 모든 프로그램에서 선언한여 사용할 수 있다.</p>
+
+    <pre><code class="language-ABAP">DATA : gv_carrid TYPE s_carr_id,
+  gv_connid TYPE sflight-carrid,
+  gv_matnr TYPE mara-matnr. "Type in ABAP Dictionary
+</code></pre>
+
+    <p><br />  <br /></p>
+  </li>
+</ul>
+
+<h3 id="data-구문">DATA 구문</h3>
+
+<p>데이터 변수를 선언할 때 사용하는 구문이다. 변수명은 언더라인(_) 기호를 포함하여 30자까지 가능하다.</p>
+
+<ul>
+  <li>
+    <p><strong>TYPE type</strong>
+데이터 변수의 타입을 정의한다. 위에서 말한 data type의 3가지 종류가 TYEP구문 다음에 올 수 있다.</p>
+
+    <p>콜론(: ) 기호는 동일한 명령어를 쉼표(,)로 구분하여 마침표(.) 을 만날 때까지 실행하도록 한다. 변수 두개를 한번에 선언할 수 있다.</p>
+
+    <pre><code class="language-ABAP">DATA: gv_num TYPE i.
+DATA: gv_num1 TYPE I,
+		gv_num2 TYPE I.
+</code></pre>
+  </li>
+  <li>
+    <p><strong>LIKE num</strong></p>
+
+    <p>앞에서 생성한 Data Variabled인 gv_num1과 동일한 타입의 변수를 선언 할 때 사용 된다.</p>
+
+    <p>타입이 있는 모든 데이터 변수(Field, Parameter, Structure, 시스템 변수..)를 사용 할 수 있다.</p>
+
+    <pre><code class="language-ABAP">Data: gv_num2 LIKE gv_num1.
+</code></pre>
+  </li>
+  <li>
+    <p><strong>VALUE int</strong></p>
+
+    <p>모든 데이터 타입은 Initial Value가 존재한다. Data 구문을 사용할 때 Value 옵션을 사용하면 기본 Initial Value 대신에 int로 초기값을 설정한다.</p>
+
+    <p>VALUE IS INITIAL 구문을 사용하면 Data Type의 Initial Value로 지정된다.(생략해도 된다)</p>
+
+    <p>Constants변수를 선언할때에는 VALUE옵션은 필수 사항이다.</p>
+
+    <pre><code class="language-ABAP">DATA: gv_num TYPE i VALUE 123,
+	gv_flag VALUE 'X',
+	gv_val VALUE IS INITIAL,
+	gv_idx LIKE sy_tabix VALUE 45.
+</code></pre>
+  </li>
+  <li>
+    <p><strong>LENGTH n</strong>
+필드의 길이를 설정한다. C, N, P, X 타입에만 사용 할 수 있다.</p>
+
+    <pre><code class="language-ABAP">DATA: gv_num TYPE n LENGTH 2.
+</code></pre>
+  </li>
+  <li>
+    <p><strong>DECIMALS n</strong>
+Data Type P에서만 사용 가능하며 1~14 사이의 소수 자리 수를 설정한다.</p>
+
+    <pre><code class="language-ABAP">DATA: gv_num TYPE P DECIMALS 3.
+</code></pre>
+
+    <p><br /></p>
+
+    <p><br /></p>
+  </li>
+</ul>
+
+<pre><code class="language-ABAP">*최종 예시
+TYPES t_var TYPE C LENGTH 20.
+
+DATA gv_var TYPE t_var.
+gv_var = 'Hellow ABAP'.
+WRITE gv_var.
+</code></pre>
+
+<p><br /></p>
+
+<p>🚙 <a href="https://www.까묵.." target="_blank">SAP 책이 뭔지 까먹었다… P24~32을 보고 요약한 글입니다!</a></p>
+
+:ET
